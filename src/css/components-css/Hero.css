@@ -1,0 +1,61 @@
+.section {
+  padding: 104px 0;
+  position: relative;
+}
+
+.small-text {
+  text-transform: uppercase;
+  color: #fafafa99;
+  letter-spacing: 2.4px;
+  margin-bottom: 22.4px;
+}
+
+.big-text {
+  font-size: 44.8px;
+  line-height: 1.4;
+  margin-bottom: 28.8px;
+}
+
+.special-text {
+  background: linear-gradient(45deg, #ff4d4d, #f9cb28);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  font-size: 52px;
+}
+
+.description-text {
+  font-size: 16px;
+  line-height: 1.4;
+  color: #a1a1aa;
+}
+
+.button {
+  margin-top: 28.8px;
+  display: flex;
+  align-items: center;
+  gap: 6.4px;
+  padding: 12.8px 25.6px;
+  background-color: #fff;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 96px;
+  cursor: pointer;
+  transition: all 0.8s;
+}
+
+.button:hover {
+  background-color: #a1a1aa;
+}
+
+.globe {
+  width: 100%;
+  height: 1120px;
+  cursor: grab;
+  position: absolute;
+  top: -50%;
+  left: 400px;
+}

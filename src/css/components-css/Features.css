@@ -1,0 +1,25 @@
+.features {
+  padding: 72px 0 0 0;
+}
+
+.card-container {
+  background-color: #17171a;
+  color: #fff;
+  border-radius: 16px;
+  border: #4b4b4b 1px solid;
+  padding: 25px 25px 0 25px;
+  max-width: 320px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-container .title {
+  font-size: 19.2px;
+  margin-bottom: 10px;
+}
+
+.card-container .description {
+  font-size: 14.4px;
+  margin-top: 20px;
+  color: #96969e;
+  text-align: justify;
+}

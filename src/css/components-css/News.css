@@ -1,0 +1,41 @@
+.news {
+  padding-top: 70.4px;
+}
+
+.slides {
+  display: flex;
+  width: calc(250px * 20);
+  animation: slide 30s linear infinite;
+}
+
+.trending-news {
+  display: flex;
+  list-style: none;
+  gap: 28.8px;
+}
+
+.heading-text {
+  margin-bottom: 25.6px;
+  font-size: 22.4px;
+  font-weight: 500;
+  color: #fafafa;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.slides:hover {
+  animation-play-state: paused;
+}
+
+.slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}

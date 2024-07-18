@@ -1,0 +1,75 @@
+.header {
+  height: 100px;
+  padding: 38px 57px;
+  background-color: #09090b;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s, backdrop-filter 0.3s;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.link-style:link,
+.link-style:visited {
+  text-decoration: none;
+  color: #fff;
+}
+
+.logo {
+  display: flex;
+  gap: 12.8px;
+  align-items: center;
+}
+
+.icon {
+  font-size: 28.8px;
+}
+
+.logo-text {
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.navigation {
+  display: flex;
+  list-style: none;
+  gap: 28.8px;
+}
+
+.nav-elements:link,
+.nav-elements:visited {
+  position: relative;
+  color: #fafafa99;
+}
+
+.nav-elements:active,
+.nav-elements:hover {
+  color: #fff;
+}
+
+.nav-elements:link::after,
+.nav-elements:visited::after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  height: 1.6px;
+  width: 0;
+  left: 0;
+  bottom: 0;
+  transition: all 0.8s;
+}
+.nav-elements:hover::after,
+.nav-elements:active::after {
+  width: 100%;
+}
+
+.glass-effect {
+  background-color: #09090b;
+}
