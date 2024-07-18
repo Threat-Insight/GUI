@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import * as THREE from "three";
 import ThreeGlobe from "three-globe";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import bump from "../img/earth-topology.jpg"; // Ensure you import the CSS file
+import bump from "../img/earth-topology.jpg";
 import "../css/components-css/Hero.css";
 
 const Globe = React.memo(() => {
@@ -10,12 +10,12 @@ const Globe = React.memo(() => {
 
   useEffect(() => {
     const globe = new ThreeGlobe().globeImageUrl(bump);
-    const renderer = new THREE.WebGLRenderer({ alpha: true }); // Set alpha to true for transparent background
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(
       globeRef.current.clientWidth,
       globeRef.current.clientHeight
     );
-    renderer.setClearColor(0x000000, 0); // Set clear color and opacity
+    renderer.setClearColor(0x000000, 0);
     globeRef.current.appendChild(renderer.domElement);
 
     const scene = new THREE.Scene();
