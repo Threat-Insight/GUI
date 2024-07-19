@@ -3,8 +3,9 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import App from "./App";
 import Scan from "./pages/Scan";
-import Teams from "./components/Teams";
-import Documentation from "./components/Documentaion";
+import Teams from "./components/MeetOurTeam";
+import Documentation from "./components/Documentation";
+import TeamsCard from "./components/TeamsCard"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -12,7 +13,7 @@ root.render(
     <Routes>
       <Route exact path="/" element={<App />} />
       <Route exact path="/scan" element={<Scan />} />
-      <Route exact path="/meet-the-team" element={<Teams />} />
+      <Route exact path="/meet-the-team" element={<TeamsCard />} />
       <Route exact path="/documentation" element={<Documentation />} />
     </Routes>
   </Router>
