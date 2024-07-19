@@ -15,6 +15,15 @@ body {
   scroll-behavior: smooth;
 }
 
+.section {
+  padding: 140px 0 50px 0;
+  position: relative;
+}
+
+.flex {
+  display: flex;
+}
+
 .grid {
   display: grid;
 }
@@ -30,4 +39,9 @@ body {
 
 .grid-three {
   grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-two-sp {
+  grid-template-columns: 1fr 1fr;
+  row-gap: 36px;
 }

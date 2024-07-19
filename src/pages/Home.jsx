@@ -4,6 +4,7 @@ import "../css/global.css";
 import Hero from "../components/Hero";
 import CVE from "../components/News";
 import Features from "../components/Feaures";
+import Education from "../components/Education";
 
 const Home = () => {
   const links = [
@@ -35,6 +36,7 @@ const Home = () => {
       <Hero />
       <CVE />
       <Features />
+      <Education />
     </>
   );
 };

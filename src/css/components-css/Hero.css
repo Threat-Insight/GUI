@@ -1,8 +1,3 @@
-.section {
-  padding: 104px 0;
-  position: relative;
-}
-
 .small-text {
   text-transform: uppercase;
   color: #fafafa99;
@@ -56,6 +51,16 @@
   height: 1120px;
   cursor: grab;
   position: absolute;
-  top: -50%;
+  top: -40%;
   left: 400px;
+}
+
+.attacked-org {
+  margin-top: 5px;
+  gap: 24px;
+}
+
+.orgs {
+  width: 10%;
+  border-radius: 50%;
 }

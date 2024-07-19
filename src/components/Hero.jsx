@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import Globe from "./GlobeComponent";
 import "../css/components-css/Hero.css";
+import Google from "../img/attacked-org/google.png";
+import DropBox from "../img/attacked-org/dropbox.png";
+import Twitter from "../img/attacked-org/twitter.png";
+import Adobe from "../img/attacked-org/acrobat.png";
 import "../css/global.css";
 
 export default function Hero() {
@@ -32,6 +36,15 @@ export default function Hero() {
             Scan now
             <MdOutlineKeyboardArrowRight />
           </button>
+          <div style={{ marginTop: "48px" }}>
+            <p className="small-text">Organizations Attacked</p>
+            <div className="attacked-org flex">
+              <img src={Google} alt="" className="orgs" />
+              <img src={Twitter} alt="" className="orgs" />
+              <img src={Adobe} alt="" className="orgs" />
+              <img src={DropBox} alt="" className="orgs" />
+            </div>
+          </div>
         </div>
         <div>
           <Globe />

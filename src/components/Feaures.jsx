@@ -38,13 +38,13 @@ export default function Features() {
     {
       title: "Educational Resources",
       description:
-        "Provides a library of educational materials, including articles and tutorials, to help users understand phishing tactics and how to stay protected online.",
+        "Provides a library of educational materials, including articles and tutorials, to help users understand phishing tactics.",
       image: Education,
     },
     {
       title: "Continuous Learning",
       description:
-        "Regularly updates its detection capabilities by learning from new phishing techniques and incorporating the latest threat intelligence.",
+        "Regularly updates its detection capabilities by learning from new phishing techniques.",
       image: Learning,
     },
   ];
