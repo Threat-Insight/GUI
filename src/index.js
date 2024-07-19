@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import App from "./App";
 import Scan from "./pages/Scan";
 import Teams from "./components/Teams";
-import Documentation from "./components/Documentaion";
+import Documentation from "./components/Documentation";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
