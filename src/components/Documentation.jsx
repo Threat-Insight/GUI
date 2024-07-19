@@ -91,7 +91,7 @@ export default function Documentation() {
     },
   ];
 
-  return (
+ return (
     <>
       <Navbar links={links} />
       <div className="flex">

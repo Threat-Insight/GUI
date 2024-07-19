@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import "../css/global.css";
 import Hero from "../components/Hero";
 import CVE from "../components/News";
-import Features from "../components/Feaures";
+import Features from "../components/Features";
 import Education from "../components/Education";
 
 const Home = () => {

@@ -1,3 +1,4 @@
+
 .left-pane {
   width: 300px;
   background-color: #1b1b1d;
@@ -5,8 +6,8 @@
   border-right: 1px solid #444;
   display: flex;
   flex-direction: column;
-  padding: 28px 18px 36px 18px;
-  position: fixed;
+  padding: 10px;
+  position: relative; /* Make sure the position is relative to use absolute positioning inside */
 }
 
 .right-pane {
@@ -20,27 +21,29 @@
 .logos {
   display: flex;
   align-items: center;
-  margin-bottom: 28px;
-  gap: 16px;
+  margin-bottom: 10px;
+  position: relative; /* Ensure relative positioning for the logo and version */
 }
 
-.docs-logo {
-  width: 40px;
+.logo {
+  width: 40px; /* Adjust size as needed */
+  height: auto;
+  margin-right: 15px; 
+  margin-left: 4%;
+  margin-top: 2%;
 }
 
 .header-title {
-  font-size: 28px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  flex: 1;
+  font-size: 1.5em;
+  flex: 1; /* Use flex to distribute space */
 }
 
 .version {
   font-size: 0.9em;
   color: #1ed363;
-  position: absolute;
-  left: 22.5%;
-  bottom: 7%;
+  position: absolute; /* Position absolute within header */
+  left: 22.5%; /* Adjust to position version correctly */
+  bottom: 7%; /* Adjust to position version correctly */
 }
 /*
 .scrollable {
@@ -52,7 +55,7 @@
 .heading {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* Space between heading text and arrow */
   font-weight: bold;
   margin-top: 10px;
   font-size: 1em;
@@ -82,13 +85,13 @@
 }
 
 .arrow {
-  width: 16px;
+  width: 16px; /* Adjust size as needed */
   height: auto;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease; /* Smooth rotation */
 }
 
 .heading.active .arrow {
-  transform: rotate(180deg);
+  transform: rotate(180deg); /* Rotate arrow when active */
 }
 
 .selected {

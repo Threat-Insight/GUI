@@ -1,5 +1,7 @@
 import React from "react";
-import Navbar from "../components/Navbar"
+import Navbar from "./Navbar";
+import styled from 'styled-components';
+import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 export default function Team(){
     const links = [
@@ -24,5 +26,12 @@ export default function Team(){
           redirect: "/meet-the-team",
         },
       ];
-    return <Navbar links={links}/>
+      const TeamSection = styled.div`
+    text-align: center;
+    padding: 50px 0;
+    background-color: black;
+    color: white;
+`;
+return <Navbar links={links}/>
+
 }
