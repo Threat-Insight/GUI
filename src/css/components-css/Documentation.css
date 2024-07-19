@@ -24,7 +24,7 @@
   position: relative; /* Ensure relative positioning for the logo and version */
 }
 
-.logo {
+.logo-docs {
   width: 40px; /* Adjust size as needed */
   height: auto;
   margin-right: 15px;

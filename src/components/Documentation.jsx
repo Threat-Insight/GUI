@@ -91,12 +91,12 @@ export default function Documentation() {
     },
   ];
 
- return (
+  return (
     <>
       <Navbar links={links} />
       <div className="flex">
         <div className="left-pane">
-          <div className="logos">
+          <div className="">
             <img
               src={DocumentationLogo}
               alt="Docs Logo"
@@ -112,9 +112,9 @@ export default function Documentation() {
                   onClick={() => handleHeadingClick(heading)}
                 >
                   {heading}
-                  <IoIosArrowDown
+                  {/* <IoIosArrowDown
                     className={`arrow ${openHeadings[heading] ? "open" : ""}`}
-                  />
+                  /> */}
                 </div>
                 {openHeadings[heading] && renderSubheadings(heading)}
               </div>
