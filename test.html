@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fixed Side Panel with Dropdown</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="#" class="menu-item">Overview</a>
+      <a href="#" class="menu-item selected react">Components</a>
+      <a href="#" class="menu-item">Hooks</a>
+      <a href="#" class="menu-item">Static</a>
+      <a href="#" class="menu-item">Guides</a>
+    </nav>
+  </body>
+</html>
+
+<!-- 
+import React, { useState } from "react";
+import Navbar from "./Navbar";
+import "../css/components-css/Documentation.css";
+import { IoMdArrowDropdown } from "react-icons/io";
+import DocumentationLogo from "../img/documentations/documentation.png";
+
+export default function Documentation() {
+  const [selectedSubheading, setSelectedSubheading] = useState(
+    "Introduction.Abstract"
+  );
+  const [openHeadings, setOpenHeadings] = useState({
+    Introduction: true,
+    Model: true,
+    "Model Diagram": true,
+    "Site Mapping": true,
+  });
+
+  const images = [
+    {
+      url: "https://tse4.mm.bing.net/th?id=OIP.rvSWtRd_oPRTwDoTCmkP5gHaE8&pid=Api&P=0&h=180",
+    },
+  ];
+  const content = {
+    Introduction: {
+      Abstract:
+        "Phishing is a pervasive cyber threat that targets unsuspecting individuals by masquerading as legitimate entities to steal sensitive information such as usernames, passwords, and financial details. The increasing sophistication of phishing attacks has made them more challenging to detect, as attackers employ various techniques like URL obfuscation, spoofed websites, and social engineering tactics. These deceptive practices exploit human vulnerabilities and technical loopholes, leading to significant financial losses and data breaches. Understanding the underlying mechanisms of phishing and developing robust detection methods is crucial to mitigate these risks and enhance cybersecurity resilience. To combat phishing effectively, a combination of technical and educational strategies is essential. Phishing URL detection systems leverage machine learning algorithms and heuristic analysis to identify and block malicious links before they can cause harm. These systems analyze various features of URLs, such as length, the number of special characters, domain reputation, and the presence of obfuscation patterns, to distinguish between legitimate and fraudulent sites. Additionally, user awareness and training programs play a vital role in prevention, educating individuals on recognizing phishing attempts and adopting safe browsing practices. By integrating advanced detection technologies with comprehensive user education, the effectiveness of phishing prevention can be significantly enhanced, protecting users from falling victim to these deceptive attacks.",
+      "What's Phishing ?": "Content about phishing...",
+      "Detection and Prevention": "Content about detection and prevention...",
+      Motive: "Content about motive...",
+    },
+    Model: {
+      Benefits: "Content about benefits...",
+      Features: "Content about all features...",
+    },
+    "Model Diagram": {
+      Diagram: "Content about AI Model Diagram...",
+    },
+    "Site Mapping": {
+      Sitemap: "Content about Sitemap...",
+    },
+  };
+
+  const handleHeadingClick = (heading) => {
+    setOpenHeadings((prevOpenHeadings) => ({
+      ...prevOpenHeadings,
+      [heading]: !prevOpenHeadings[heading],
+    }));
+  };
+
+  const handleSubheadingClick = (subheading) => {
+    setSelectedSubheading(subheading);
+  };
+
+  const renderSubheadings = (heading) => {
+    return Object.keys(content[heading]).map((subheading) => {
+      const fullSubheading = `${heading}.${subheading}`;
+      return (
+        <div
+          key={fullSubheading}
+          className={`subheading ${
+            selectedSubheading === fullSubheading ? "selected" : ""
+          }`}
+          onClick={() => handleSubheadingClick(fullSubheading)}
+        >
+          {subheading}
+        </div>
+      );
+    });
+  };
+  const renderContent = (source) => {
+    const [heading, subheading] = selectedSubheading.split(".");
+    if (subheading in content[heading]) {
+      return (
+        <>
+          <p className="content-subheading">{subheading}</p>
+          <p className="content-text">{content[heading][subheading]}</p>
+          <img src={source} alt="Documentation" />
+        </>
+      );
+    }
+    return null;
+  };
+  const links = [
+    {
+      title: "Home",
+      redirect: "/",
+    },
+    {
+      title: "About",
+      redirect: "/about",
+    },
+    {
+      title: "Documentation",
+      redirect: "/documentation",
+    },
+    {
+      title: "Contribute",
+      redirect: "https://github.com/syncattacker/ProjectSafeLink",
+    },
+    {
+      title: "Team",
+      redirect: "/meet-the-team",
+    },
+  ];
+
+  return (
+    <>
+      <Navbar links={links} />
+      <div>
+        <div className="left-pane">
+          <div className="logos">
+            <img
+              src={DocumentationLogo}
+              alt="Docs Logo"
+              className="docs-logo"
+            />
+            <div
+              className="flex"
+              style={{ flexDirection: "column", gap: "0.5px" }}
+            >
+              <h1 className="header-title">Docs</h1>
+              <p className="version">Version 1.0</p>
+            </div>
+          </div>
+          <div className="scrollable">
+            {Object.keys(content).map((heading) => (
+              <div key={heading}>
+                <div
+                  className={`heading-docs ${
+                    openHeadings[heading] ? "active" : ""
+                  }`}
+                  onClick={() => handleHeadingClick(heading)}
+                >
+                  {heading}
+                  <IoMdArrowDropdown
+                    className={`arrow ${openHeadings[heading] ? "open" : ""}`}
+                  />
+                </div>
+                <div className="subheadings-docs">
+                  {openHeadings[heading] && renderSubheadings(heading)}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="right-pane">
+          <div className="content">
+            {images.map((image) => renderContent(image.url))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+} -->

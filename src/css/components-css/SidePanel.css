@@ -1,0 +1,154 @@
+.side-container {
+  display: flex;
+}
+
+.side-panel {
+  position: fixed;
+  width: 300px;
+  height: calc(100vh - 100px);
+  background-color: #09090b;
+  padding: 26px 20px 20px 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.side-panel::-webkit-scrollbar {
+  width: 12px;
+}
+
+.side-panel::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.side-panel::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+
+.side-panel::-webkit-scrollbar-thumb:hover {
+  background: #7e7d7d;
+  border-radius: 10px;
+}
+
+.docs {
+  display: flex;
+  margin-bottom: 36px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.docs-image {
+  width: 30%;
+}
+
+.docs-text-heading {
+  font-size: 36px;
+  text-transform: uppercase;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-left: 18px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.version {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #808080;
+  font-weight: 700;
+}
+
+.release {
+  letter-spacing: 1.5px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  gap: 8px;
+}
+
+.subtopics {
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+.content {
+  margin-left: 350px;
+}
+
+.list-hover {
+  padding: 8px;
+}
+
+.list-hover.selected {
+  background-color: #666666;
+  border-radius: 6px;
+}
+
+.panel-header .arrow {
+  transition: transform 0.8s;
+}
+
+.panel-header.expanded .arrow {
+  padding-top: 4px;
+  transform: rotate(-45deg);
+}
+
+.subtopics.show {
+  list-style: none;
+  display: flex;
+  font-size: 16px;
+  line-height: 1.5;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: 26px;
+  color: #e6e6e6;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.subtopics-name {
+  font-size: 64px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: block;
+}
+
+.main-content {
+  max-width: 1100px;
+  text-align: justify;
+  padding: 20px 0;
+}
+
+.main-para {
+  font-size: 18px;
+  line-height: 1.5;
+  position: relative;
+  margin-top: 18px;
+}
+
+.style-docs {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 18px;
+  align-items: center;
+}
+
+.docs-content-image {
+  width: 13%;
+}
