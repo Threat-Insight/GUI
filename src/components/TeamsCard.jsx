@@ -5,8 +5,8 @@ import "../css/global.css";
 export default function TeamsCard(props) {
   return (
     <div className="card-spl">
-      <div className="icon">
-        <img src={props.urlToImage} alt="Icon" />
+      <div className="icon-div">
+        <img src={props.urlToImage} alt="Icon" className="icon" />
       </div>
       <div className="title">{props.title}</div>
       <div className="description">{props.author}</div>
