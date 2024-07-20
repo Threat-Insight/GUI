@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/components-css/TeamsCard.css"
+import "../css/components-css/TeamsCard.css";
 import "../css/global.css";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
@@ -13,7 +13,14 @@ export default function TeamsCard(props) {
       <div className="title">{props.title}</div>
       <div className="description">{props.author}</div>
       <div className="detail">{props.details}</div>
-      <div className="icons"><a href={props.icontoLnURL}><FaLinkedinIn /></a><a href={props.icontoGbURL}><FaGithub /></a></div>
+      <div className="icons">
+        <a href={props.icontoLnURL}>
+          <FaLinkedinIn />
+        </a>
+        <a href={props.icontoGbURL}>
+          <FaGithub />
+        </a>
+      </div>
     </div>
   );
 }
