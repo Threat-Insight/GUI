@@ -56,32 +56,18 @@ export default function Docs() {
     {
       text: "Model",
       subtopics: [
-        { image: benifit,
-          name: "Benefits", 
-          content: BenifitsContent,
-        },
-        { image:Features,
-          name: "Features", 
-          content: FeaturesContent, 
-        },
+        { image: benifit, name: "Benefits", content: BenifitsContent },
+        { image: Features, name: "Features", content: FeaturesContent },
       ],
     },
     {
       text: "Model Diagram",
-      subtopics: [
-        { image:Diagram,
-          name: "Diagram", 
-          content: DiagramContent, 
-        }
-      ],
+      subtopics: [{ image: Diagram, name: "Diagram", content: DiagramContent }],
     },
     {
       text: "Site Mapping",
       subtopics: [
-        { image:Sitemap,
-          name: "Site Map", 
-          content: SitemapContent, 
-        }
+        { image: Sitemap, name: "Site Map", content: SitemapContent },
       ],
     },
   ];
@@ -196,7 +182,7 @@ export default function Docs() {
                   />
                 </div>
               </div>
-              <p className="main-para">{subtopic.content}</p>
+              <div className="main-para">{subtopic.content}</div>
             </div>
           ))
         )}

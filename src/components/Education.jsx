@@ -89,6 +89,7 @@ export default function Education() {
         >
           {learning.map((resource) => (
             <ResourceCard
+              key={resource.title}
               logo={resource.logo}
               title={resource.title}
               describe={resource.description}

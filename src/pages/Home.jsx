@@ -13,10 +13,6 @@ const Home = () => {
       redirect: "/",
     },
     {
-      title: "About",
-      redirect: "/about",
-    },
-    {
       title: "Documentation",
       redirect: "/documentation",
     },

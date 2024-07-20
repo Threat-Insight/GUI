@@ -1,0 +1,35 @@
+.dashboard-card {
+  display: flex;
+  align-items: center;
+  background-color: #6a5acd;
+  border-radius: 15px;
+  padding: 20px 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.dashboard-card-content {
+  margin-right: 20px;
+}
+
+.dashboard-card-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.dashboard-card-number {
+  margin: 5px 0 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.dashboard-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}

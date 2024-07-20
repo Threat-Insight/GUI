@@ -10,10 +10,6 @@ export default function Documentation() {
       redirect: "/",
     },
     {
-      title: "About",
-      redirect: "/about",
-    },
-    {
       title: "Documentation",
       redirect: "/documentation",
     },

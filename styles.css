@@ -1,22 +1,45 @@
-/* Base style for the menu items */
-.menu-item {
-  display: block;
-  padding: 10px;
-  color: #fff;
-  text-decoration: none;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #000;
+  font-family: Arial, sans-serif;
 }
 
-/* Style for the selected item */
-.menu-item.selected {
-  background-color: #ff91c5; /* Light color background */
+.card {
+  display: flex;
+  align-items: center;
+  background-color: #6a5acd;
+  border-radius: 15px;
+  padding: 20px 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: white;
 }
 
-/* Additional styling to match the image */
-.menu-item:hover {
-  background-color: #4a4a4a; /* Darker background on hover */
+.card-content {
+  margin-right: 20px;
 }
 
-/* Specific styles for individual items, if needed */
-.menu-item.react {
-  /* Any specific styles for the React item */
+.card-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.card-number {
+  margin: 5px 0 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
 }
