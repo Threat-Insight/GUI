@@ -1,10 +1,11 @@
 import React from "react";
 import Navbar from "./Navbar";
 import TeamsCard from "./TeamsCard";
-import Rahul from "../img/team-members/rahul.jpeg";
+import Rahul from "../img/team-members/Rahul.jpg";
 import Kushagra from "../img/team-members/Kushagra.jpeg";
 import AsheeshSir from "../img/team-members/asheeshsir.jpg";
 import ArvindSir from "../img/team-members/ArvindSir.jpeg";
+import Abhinav from "../img/team-members/Abhinav.jpg";
 
 export default function Team() {
   const links = [
@@ -33,13 +34,13 @@ export default function Team() {
     {
       name: "Dr. Asheesh Tiwari",
       description:
-        "Dr. Asheesh Tiwari is an Associate Professor at GLA University with a Ph.D. in Computer Science. He specializes in cybersecurity and is dedicated to mentoring students and advancing research in the field.",
+        "Associate Professor | GLA University 🎓 | Cybersecurity Specialist 🔐 | Dedicated Mentor 👨‍🏫 | Ph.D. in Computer Science",
       image: AsheeshSir,
     },
     {
       name: "Mr. Arvind Prasad",
       description:
-        "Mr. Arvind Prasad is a Professor and researcher specializing in cybersecurity and machine learning. He is recognized for his contributions to both fields and his commitment to integrating theoretical concepts with practical applications.",
+        "Professor & Researcher 👨‍🏫 | Cybersecurity & Machine Learning Expert 🤖🔐 | Advancing Research & Practical Applications 📊",
       image: ArvindSir,
     },
   ];
@@ -47,17 +48,26 @@ export default function Team() {
     {
       name: "Rahul Dixit",
       description:
-        "Enthusiastic Cybersecurity & Forensics Student | GLA University 📚 | Cyber Awareness Advocate | Creator of MacSpoofer",
+        "Enthusiastic Cybersecurity & Forensics Student | GLA University 📚 | Cyber Awareness Advocate | Creator of MacSpoofer | CNSP",
       image: Rahul,
+      LNiconlink:"https://www.linkedin.com/in/secproof/",
+      GBiconlink:"https://github.com/syncattacker",
     },
     {
       name: "Kushagra Varshney",
       description:
-        "I'm a passionate Computer Science & Engineering student specializing in Cybersecurity at GLA University, Mathura, with a top 5% ranking on TryHackMe",
+        "Passionate Computer Science & Engineering Student | GLA University, Mathura 🎓 | Cybersecurity Specialist 🔐 | Top 5% on TryHackMe 🏆 | CCTv1 📜",
       image: Kushagra,
+      LNiconlink:"https://www.linkedin.com/in/hacksprob/",
+      GBiconlink:""
     },
     {
-      name: "",
+      name: "Abhinav Singh",
+      description:
+        "Computer Science Student | Specializing in Cybersecurity & Forensics 🔍🔐 | Top 9% on TryHackMe 🏆 | Cybersecurity Instructor 👨‍🏫 ",
+      image: Abhinav,
+      LNiconlink:"https://www.linkedin.com/in/abhinav-singh-aba043283/",
+      GBiconlink:"https://github.com/secfreaky",
     },
   ];
   return (
@@ -90,35 +100,39 @@ export default function Team() {
         </div>
         <div
           className="grid grid-two teammembers"
-          style={{ justifyItems: "center", rowGap: "50px", margin: "0 250px" }}
+          style={{ justifyItems: "center", rowGap: "50px", margin: "0 200px" }}
         >
           {Faculty.map((teammember) => (
             <TeamsCard
               title={teammember.name}
               author={teammember.description}
               urlToImage={teammember.image}
+              icontoLnURL={teammember.LNiconlink}
+              icontoGbURL={teammember.GBiconlink}
             />
           ))}
         </div>
         <p
-            className="special-text"
-            style={{
-              fontSize: "20px",
-              textAlign: "center",
-              margin: " 76px 0 ",
-            }}
-          >
-            Student Contributors
-          </p>
+          className="special-text"
+          style={{
+            fontSize: "20px",
+            textAlign: "center",
+            margin: " 76px 0 ",
+          }}
+        >
+          Student Contributors
+        </p>
         <div
-          className="grid grid-three teammembers"
-          style={{ justifyItems: "center", rowGap: "50px" ,margin:"0 50px" }}
+          className="grid grid-two teammembers"
+          style={{ justifyItems: "center",gridTemplateColumns:"auto auto", rowGap: "50px", margin: "0 200px" }}
         >
           {Students.map((teammember) => (
             <TeamsCard
               title={teammember.name}
               author={teammember.description}
               urlToImage={teammember.image}
+              icontoLnURL={teammember.LNiconlink}
+              icontoGbURL={teammember.GBiconlink}
             />
           ))}
         </div>

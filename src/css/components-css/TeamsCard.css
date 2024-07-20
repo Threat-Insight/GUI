@@ -1,10 +1,10 @@
 .card-spl {
-  min-width: 400px;
+  min-width: 500px;
   background-color: #17171a;
   color: #fff;
   border-radius: 0%;
   border: #000000 1px solid;
-  padding: 26px 26px 26px 26px;
+  padding: 28px 28px 28px 28px;
   max-width: 320px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -67,3 +67,14 @@
   margin-bottom: 32px;
 }
 
+.icons {
+  display: flex;
+  gap: 12px;
+  font-size: 26px;  
+}
+
+.icons a:link,
+.icons a:visited{
+  color:#fff;
+
+}
