@@ -11,7 +11,6 @@ import "../css/global.css";
 
 export default function Hero() {
   const navigate = useNavigate();
-
   const handleRedirect = () => {
     navigate("/scan");
   };

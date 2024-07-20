@@ -1,0 +1,22 @@
+/* Base style for the menu items */
+.menu-item {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Style for the selected item */
+.menu-item.selected {
+  background-color: #ff91c5; /* Light color background */
+}
+
+/* Additional styling to match the image */
+.menu-item:hover {
+  background-color: #4a4a4a; /* Darker background on hover */
+}
+
+/* Specific styles for individual items, if needed */
+.menu-item.react {
+  /* Any specific styles for the React item */
+}
