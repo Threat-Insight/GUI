@@ -7,10 +7,18 @@ import AbstractContent from "../content/AbstractContent";
 import WhatsPhishingContent from "../content/WhatsPhishingContent";
 import DetectionAndPreventionContent from "../content/DetectionAndPreventionContent";
 import MotiveContent from "../content/MotiveContent";
+import BenifitsContent from "../content/BenifitsContent";
+import FeaturesContent from "../content/FeaturesContent";
+import DiagramContent from "../content/DiagramContent";
+import SitemapContent from "../content/SitemapContent";
 import Abstract from "../img/documentation/phishing-content.png";
 import WhatContent from "../img/documentation/what-content.png";
 import Detection from "../img/documentation/detection-content.png";
 import Motive from "../img/documentation/motive-content.png";
+import benifit from "../img/documentation/benifit.png";
+import Features from "../img/documentation/Features.png";
+import Diagram from "../img/documentation/Diagram.png";
+import Sitemap from "../img/documentation/Sitemap.png";
 
 export default function Docs() {
   const [selectedSection, setSelectedSection] = useState("Introduction");
@@ -48,17 +56,33 @@ export default function Docs() {
     {
       text: "Model",
       subtopics: [
-        { name: "Benefits", content: "Content for Benefits" },
-        { name: "Features", content: "Content for Features" },
+        { image: benifit,
+          name: "Benefits", 
+          content: BenifitsContent,
+        },
+        { image:Features,
+          name: "Features", 
+          content: FeaturesContent, 
+        },
       ],
     },
     {
       text: "Model Diagram",
-      subtopics: [{ name: "Diagram", content: "Content for Diagram" }],
+      subtopics: [
+        { image:Diagram,
+          name: "Diagram", 
+          content: DiagramContent, 
+        }
+      ],
     },
     {
       text: "Site Mapping",
-      subtopics: [{ name: "Site Map", content: "Content for Site Map" }],
+      subtopics: [
+        { image:Sitemap,
+          name: "Site Map", 
+          content: SitemapContent, 
+        }
+      ],
     },
   ];
 
