@@ -139,6 +139,10 @@
   padding-top: 100px;
 }
 
+.main-content:last-child {
+  padding-bottom: 64px;
+}
+
 .main-para {
   font-size: 18px;
   line-height: 1.5;
