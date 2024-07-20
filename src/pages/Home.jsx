@@ -5,6 +5,7 @@ import Hero from "../components/Hero";
 import CVE from "../components/News";
 import Features from "../components/Features";
 import Education from "../components/Education";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const links = [
@@ -37,6 +38,7 @@ const Home = () => {
       <CVE />
       <Features />
       <Education />
+      <Footer />
     </>
   );
 };
