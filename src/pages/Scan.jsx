@@ -8,6 +8,7 @@ import "../css/components-css/Scan.css";
 import DashboardPanel from "../components/DashboardPanel";
 import URLClassificationPieChart from "../components/PieChart";
 import { GiFishingHook } from "react-icons/gi";
+import DashboardFooter from "../components/DashboardFooter";
 
 function Scan() {
   const links = [
@@ -113,6 +114,7 @@ function Scan() {
           </div>
         </div>
       </section>
+      <DashboardFooter />
     </>
   );
 }

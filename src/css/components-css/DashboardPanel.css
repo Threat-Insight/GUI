@@ -1,6 +1,6 @@
 .left-panel {
   background-color: #222223;
-  padding: 42px 20px 20px 20px;
+  padding: 42px 20px 0px 20px;
   width: 300px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -9,6 +9,25 @@
   position: fixed;
   height: calc(100vh - 100px);
   overflow-y: auto;
+}
+
+.left-panel::-webkit-scrollbar {
+  width: 12px;
+}
+
+.left-panel::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.left-panel::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+
+.left-panel::-webkit-scrollbar-thumb:hover {
+  background: #7e7d7d;
+  border-radius: 10px;
 }
 
 .dashboard-logo {

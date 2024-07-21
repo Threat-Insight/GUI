@@ -1,0 +1,39 @@
+.dashboard-footer {
+  text-align: left;
+  margin-top: 20px;
+  margin-left: 380px;
+  padding-bottom: 20px;
+}
+
+.dashboard-footer-text {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.dashboard-footer-text span {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  color: #6a5acd;
+}
+
+.dashboard-footer-link:link,
+.dashboard-footer-link:visited {
+  color: #fff;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.dashboard-footer-link::after {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: #6a5acd;
+  bottom: -2px;
+  left: 0;
+  border-radius: 60px;
+}
