@@ -25,75 +25,95 @@ def ShannonEntropy(entropyType):
     return -sum([p * math.log(p) / math.log(2.0) for p in probabilities])
 
 def HasTitle(url):
-    hasTitle = BeautifulSoup(requests.get(url, headers=headers).content, 'html.parser').title
-    return 1 if hasTitle else 0
+    try:
+        hasTitle = BeautifulSoup(requests.get(url, headers=headers).content, 'html.parser').title
+        return 1 if hasTitle else 0
+    except requests.RequestException as e:
+        print(f"Error checking title: {e}", file=sys.stderr)
+        return 0
 
 def hasFavicon(url):
-    return 1 if BeautifulSoup(requests.get(url, headers=headers).content, 'html.parser').find("link", rel=re.compile(r'^(shortcut )?icon$', re.I)) else 0
+    try:
+        return 1 if BeautifulSoup(requests.get(url, headers=headers).content, 'html.parser').find("link", rel=re.compile(r'^(shortcut )?icon$', re.I)) else 0
+    except requests.RequestException as e:
+        print(f"Error checking favicon: {e}", file=sys.stderr)
+        return 0
 
 def hasCopyRightInfo(url):
-    for element in BeautifulSoup(requests.get(url, headers=headers).content, 'html.parser').find_all(['footer', 'div', 'span', 'p', 'small', 'a']):
-        text = element.get_text().lower()
-        for keyword in ['copyright', '©']:
-            if keyword in text:
-                return 1
-    return 0
+    try:
+        for element in BeautifulSoup(requests.get(url, headers=headers).content, 'html.parser').find_all(['footer', 'div', 'span', 'p', 'small', 'a']):
+            text = element.get_text().lower()
+            for keyword in ['copyright', '©']:
+                if keyword in text:
+                    return 1
+        return 0
+    except requests.RequestException as e:
+        print(f"Error checking copyright info: {e}", file=sys.stderr)
+        return 0
 
 def hasRedirects(url):
-    return 1 if len(requests.get(url, headers=headers).history) else 0
+    try:
+        return 1 if len(requests.get(url, headers=headers).history) else 0
+    except requests.RequestException as e:
+        print(f"Error checking redirects: {e}", file=sys.stderr)
+        return 0
 
 def preprocess_url(url):
-    parseUrl = urlparse(url)
-    domainInfo = tldextract.extract(url)
-    queryParameters = parse_qs(parseUrl.query)
-    url_length = len(url)
-    num_dots = url.count('.')
-    domain_length = url.split('/')[2].count('-')
-    num_hyphens = url.count('-')
-    num_underscores = url.count('_')
-    num_slashes = url.count('/')
-    num_digits = sum(c.isdigit() for c in url)
-    num_special_characters = len(url) - sum(c.isalnum() for c in url)
-    num_capital_letters = sum(c.isupper() for c in url)
-    num_subdomains = url.count('.')
-    isDomainIP = int(re.match(r'^\d{1,3}(\.\d{1,3}){3}$', parseUrl.netloc) is not None)
-    tldLength = len(domainInfo.suffix)
-    numOfDirectories = len(parseUrl.path.split('/')) - 1
-    pathEntropy = ShannonEntropy(parseUrl.path)
-    noOfParameters = len(queryParameters)
-    queryEntropy = ShannonEntropy(parseUrl.query)
-    isHTTPs =  int(parseUrl.scheme == 'https')
-    noOfObusfucation = len(re.findall(r'%[0-9A-Fa-f]{2}', url))
-    hasTitle = HasTitle(url)
-    hasFavIcon = hasFavicon(url)
-    hasCopyRight = hasCopyRightInfo(url)
-    hasRedirect = hasRedirects(url)
-    url_features = {
-        'UrlLength': url_length,
-        'DomainLength': domain_length,
-        'NumOfDots': num_dots,
-        'NumOfHypens': num_hyphens,
-        'NumOfUnderscores': num_underscores,
-        'NumOfSlashes': num_slashes,
-        'NumOfDigits': num_digits,
-        'NumOfSpecialCharacters': num_special_characters,
-        'NumOfCaptialLetters': num_capital_letters,
-        'NumOfSubdomains': num_subdomains,
-        'IsDomainIP': isDomainIP, 
-        'TLDLength': tldLength,  
-        'NumOfDirectories': numOfDirectories,
-        'PathEntropy': pathEntropy,
-        'NumOfParameters': noOfParameters,
-        'QueryEntropy': queryEntropy,
-        'IsHTTPS': isHTTPs,
-        'NoOfObusfucatedCharacters': noOfObusfucation,
-        'HasTitle': hasTitle,
-        'HasFavicon': hasFavIcon,
-        'HasCopyRightInfo': hasCopyRight,
-        'HasURLRedirects': hasRedirect
-    }
+    try:
+        parseUrl = urlparse(url)
+        domainInfo = tldextract.extract(url)
+        queryParameters = parse_qs(parseUrl.query)
+        url_length = len(url)
+        num_dots = url.count('.')
+        domain_length = url.split('/')[2].count('-')
+        num_hyphens = url.count('-')
+        num_underscores = url.count('_')
+        num_slashes = url.count('/')
+        num_digits = sum(c.isdigit() for c in url)
+        num_special_characters = len(url) - sum(c.isalnum() for c in url)
+        num_capital_letters = sum(c.isupper() for c in url)
+        num_subdomains = url.count('.')
+        isDomainIP = int(re.match(r'^\d{1,3}(\.\d{1,3}){3}$', parseUrl.netloc) is not None)
+        tldLength = len(domainInfo.suffix)
+        numOfDirectories = len(parseUrl.path.split('/')) - 1
+        pathEntropy = ShannonEntropy(parseUrl.path)
+        noOfParameters = len(queryParameters)
+        queryEntropy = ShannonEntropy(parseUrl.query)
+        isHTTPs = int(parseUrl.scheme == 'https')
+        noOfObusfucation = len(re.findall(r'%[0-9A-Fa-f]{2}', url))
+        hasTitle = HasTitle(url)
+        hasFavIcon = hasFavicon(url)
+        hasCopyRight = hasCopyRightInfo(url)
+        hasRedirect = hasRedirects(url)
+        url_features = {
+            'UrlLength': url_length,
+            'DomainLength': domain_length,
+            'NumOfDots': num_dots,
+            'NumOfHypens': num_hyphens,
+            'NumOfUnderscores': num_underscores,
+            'NumOfSlashes': num_slashes,
+            'NumOfDigits': num_digits,
+            'NumOfSpecialCharacters': num_special_characters,
+            'NumOfCaptialLetters': num_capital_letters,
+            'NumOfSubdomains': num_subdomains,
+            'IsDomainIP': isDomainIP, 
+            'TLDLength': tldLength,  
+            'NumOfDirectories': numOfDirectories,
+            'PathEntropy': pathEntropy,
+            'NumOfParameters': noOfParameters,
+            'QueryEntropy': queryEntropy,
+            'IsHTTPS': isHTTPs,
+            'NoOfObusfucatedCharacters': noOfObusfucation,
+            'HasTitle': hasTitle,
+            'HasFavicon': hasFavIcon,
+            'HasCopyRightInfo': hasCopyRight,
+            'HasURLRedirects': hasRedirect
+        }
 
-    return url_features
+        return url_features
+    except Exception as e:
+        print(f"Error preprocessing URL: {e}", file=sys.stderr)
+        return None
 
 def predict_url(url):
     if 'www' not in url:
@@ -104,6 +124,8 @@ def predict_url(url):
         else:
             url = 'https://www.' + url
     url_features = preprocess_url(url)
+    if url_features is None:
+        return "Unknown"
     url_df = pd.DataFrame([url_features])
     predicted_label = rf_model_loaded.predict(url_df)
     return predicted_label[0]

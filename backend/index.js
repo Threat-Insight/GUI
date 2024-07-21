@@ -8,10 +8,19 @@ const validator = require("validator");
 const app = express();
 const port = 5000;
 
-app.use(cors());
+const corsOptions = {
+  origin: "*",
+  methods: "GET,POST",
+  allowedHeaders: "Content-Type,Authorization",
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
-let urlScanCount = 0; // Counter to keep track of URLs scanned
+let urlScanCount = 0;
+let phishingCount = 0;
+let legitimateCount = 0;
 
 app.post("/scan", (req, res) => {
   const url = req.body.url;
@@ -31,26 +40,45 @@ app.post("/scan", (req, res) => {
     url,
   ]);
 
+  let responseSent = false;
   pythonProcess.stdout.on("data", (data) => {
+    if (responseSent) return;
     const prediction = data.toString().trim();
     console.log(`Prediction: ${prediction}`);
+    if (prediction === "Phishing") {
+      phishingCount++;
+    } else if (prediction === "Legitimate") {
+      legitimateCount++;
+    }
+
     res.json({ prediction });
+    responseSent = true;
   });
 
   pythonProcess.stderr.on("data", (data) => {
-    console.error(`stderr: ${data}`);
+    if (responseSent) return;
     res.status(500).json({ error: "An error occurred during prediction" });
+    responseSent = true;
   });
 
   pythonProcess.on("close", (code) => {
-    console.log(`Python process exited with code ${code}`);
+    if (responseSent) return;
+    console.log(`Child process exited with code ${code}`);
+    res.status(500).json({ error: "An error occurred during prediction" });
+    responseSent = true;
   });
 });
 
-// New endpoint to get the URL scan count
 app.get("/scan/count", (req, res) => {
-  console.log(`URL scan count requested. Current count: ${urlScanCount}`);
   res.json({ count: urlScanCount });
+});
+
+app.get("/scan/phishingCount", (req, res) => {
+  res.json({ phishingCount: phishingCount });
+});
+
+app.get("/scan/legitimateCount", (req, res) => {
+  res.json({ legitimateCount: legitimateCount });
 });
 
 app.listen(port, () => {

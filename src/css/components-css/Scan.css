@@ -1,3 +1,117 @@
+.scan-dashboard {
+  min-width: 1080px;
+  margin-left: 350px;
+  padding: 30px;
+}
+
+.main-dashboard {
+  display: flex;
+}
+
+.dashboard-counters {
+  display: flex;
+  gap: 30px;
+}
+
+.scan-details {
+  display: flex;
+  margin-top: 64px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.scan-heading {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  background: radial-gradient(
+    circle,
+    rgba(149, 0, 0, 1) 0%,
+    rgba(222, 16, 16, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 36px;
+}
+
+.scan-describe-one {
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.scan-header {
+  position: relative;
+}
+
+.scan-describe-two {
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 500;
+  margin-bottom: 28px;
+}
+
+.scan-url {
+  width: 320px;
+  outline: none;
+  background: none;
+  border: none;
+  border: #6a5acd 4px solid;
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: #f3f3f3;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1.1px;
+}
+
+.scan-form {
+  display: flex;
+  gap: 12px;
+}
+
+.check-btn {
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  color: #000;
+  background-color: #6a5acd;
+  font-size: 24px;
+
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.check-btn:hover {
+  background-color: #36b78e;
+}
+
+.absolute-icon {
+  position: absolute;
+  top: 10px;
+  right: 55%;
+  font-size: 48px;
+  animation: wave 4s alternate infinite;
+}
+
+.scan-describe {
+  max-width: 400px;
+  text-align: justify;
+}
+
+.scan-url::placeholder {
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+}
+
 .loading-overlay {
   position: fixed;
   top: 0;
@@ -26,5 +140,17 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
