@@ -7,6 +7,12 @@ from urllib.parse import urlparse, parse_qs
 import math
 from bs4 import BeautifulSoup
 import requests
+import warnings
+from urllib3.exceptions import InsecureRequestWarning
+
+
+# Suppress InsecureRequestWarning
+warnings.simplefilter('ignore', InsecureRequestWarning)
 
 # Load the saved model
 rf_model_loaded = joblib.load('random_forest_model.pkl')
@@ -24,38 +30,56 @@ def ShannonEntropy(entropyType):
     probabilities = [float(entropyType.count(c)) / len(entropyType) for c in dict.fromkeys(list(entropyType))]
     return -sum([p * math.log(p) / math.log(2.0) for p in probabilities])
 
+def make_request(url):
+    try:
+        response = requests.get(url, headers=headers, timeout=10, verify=False)  # verify=False suppresses SSL certificate verification
+        response.raise_for_status()
+        return response
+    except requests.HTTPError as e:
+        if e.response.status_code == 503:
+            return None
+        return None
+    except requests.RequestException as e:
+        return None
+
 def HasTitle(url):
     try:
-        hasTitle = BeautifulSoup(requests.get(url, headers=headers).content, 'html.parser').title
+        response = make_request(url)
+        if response is None:
+            return 0
+        hasTitle = BeautifulSoup(response.content, 'html.parser').title
         return 1 if hasTitle else 0
-    except requests.RequestException as e:
-        print(f"Error checking title: {e}", file=sys.stderr)
+    except Exception as e:
         return 0
 
 def hasFavicon(url):
     try:
-        return 1 if BeautifulSoup(requests.get(url, headers=headers).content, 'html.parser').find("link", rel=re.compile(r'^(shortcut )?icon$', re.I)) else 0
-    except requests.RequestException as e:
-        print(f"Error checking favicon: {e}", file=sys.stderr)
+        response = make_request(url)
+        if response is None:
+            return 0
+        return 1 if BeautifulSoup(response.content, 'html.parser').find("link", rel=re.compile(r'^(shortcut )?icon$', re.I)) else 0
+    except Exception as e:
         return 0
 
 def hasCopyRightInfo(url):
     try:
-        for element in BeautifulSoup(requests.get(url, headers=headers).content, 'html.parser').find_all(['footer', 'div', 'span', 'p', 'small', 'a']):
+        response = make_request(url)
+        if response is None:
+            return 0
+        for element in BeautifulSoup(response.content, 'html.parser').find_all(['footer', 'div', 'span', 'p', 'small', 'a']):
             text = element.get_text().lower()
             for keyword in ['copyright', '©']:
                 if keyword in text:
                     return 1
         return 0
-    except requests.RequestException as e:
-        print(f"Error checking copyright info: {e}", file=sys.stderr)
+    except Exception as e:
         return 0
 
 def hasRedirects(url):
     try:
-        return 1 if len(requests.get(url, headers=headers).history) else 0
+        response = requests.get(url, headers=headers, timeout=10, allow_redirects=True, verify=False)  # verify=False suppresses SSL certificate verification
+        return 1 if len(response.history) else 0
     except requests.RequestException as e:
-        print(f"Error checking redirects: {e}", file=sys.stderr)
         return 0
 
 def preprocess_url(url):
@@ -65,7 +89,7 @@ def preprocess_url(url):
         queryParameters = parse_qs(parseUrl.query)
         url_length = len(url)
         num_dots = url.count('.')
-        domain_length = url.split('/')[2].count('-')
+        domain_length = url.split('/')[2].count('-') if len(url.split('/')) > 2 else 0
         num_hyphens = url.count('-')
         num_underscores = url.count('_')
         num_slashes = url.count('/')
@@ -112,20 +136,19 @@ def preprocess_url(url):
 
         return url_features
     except Exception as e:
-        print(f"Error preprocessing URL: {e}", file=sys.stderr)
         return None
 
 def predict_url(url):
     if 'www' not in url:
         if url.startswith('http://'):
-            url.replace('http://', 'http://www.')
+            url = url.replace('http://', 'http://www.')
         elif url.startswith('https://'):
             url = url.replace('https://', 'https://www.')
         else:
             url = 'https://www.' + url
     url_features = preprocess_url(url)
     if url_features is None:
-        return "Unknown"
+        return "Phishing"
     url_df = pd.DataFrame([url_features])
     predicted_label = rf_model_loaded.predict(url_df)
     return predicted_label[0]
@@ -139,6 +162,8 @@ def interpret_label(predicted_label):
         return "Unknown"
 
 if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        sys.exit(1)
     user_url = sys.argv[1]
     predicted_label = predict_url(user_url)
     label_interpreted = interpret_label(predicted_label)

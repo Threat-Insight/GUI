@@ -60,6 +60,8 @@ const PieChart = () => {
 
   useEffect(() => {
     fetchCounts();
+    const intervalId = setInterval(fetchCounts, 1000);
+    return () => clearInterval(intervalId);
   }, []);
 
   return (

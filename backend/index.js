@@ -5,6 +5,15 @@ const { spawn } = require("child_process");
 const path = require("path");
 const validator = require("validator");
 
+const {
+  getUrlScanCount,
+  incrementUrlScanCount,
+  getPhishingCount,
+  incrementPhishingCount,
+  getLegitimateCount,
+  incrementLegitimateCount,
+} = require("./counterStorage");
+
 const app = express();
 const port = 5000;
 
@@ -18,10 +27,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
-let urlScanCount = 0;
-let phishingCount = 0;
-let legitimateCount = 0;
-
 app.post("/scan", (req, res) => {
   const url = req.body.url;
 
@@ -30,9 +35,9 @@ app.post("/scan", (req, res) => {
     return res.status(400).json({ error: "Invalid URL" });
   }
 
-  urlScanCount++;
+  incrementUrlScanCount();
   console.log(
-    `URL received for scanning: ${url}. Total count: ${urlScanCount}`
+    `URL received for scanning: ${url}. Total count: ${getUrlScanCount()}`
   );
 
   const pythonProcess = spawn("python", [
@@ -46,9 +51,9 @@ app.post("/scan", (req, res) => {
     const prediction = data.toString().trim();
     console.log(`Prediction: ${prediction}`);
     if (prediction === "Phishing") {
-      phishingCount++;
+      incrementPhishingCount();
     } else if (prediction === "Legitimate") {
-      legitimateCount++;
+      incrementLegitimateCount();
     }
 
     res.json({ prediction });
@@ -70,15 +75,15 @@ app.post("/scan", (req, res) => {
 });
 
 app.get("/scan/count", (req, res) => {
-  res.json({ count: urlScanCount });
+  res.json({ count: getUrlScanCount() });
 });
 
 app.get("/scan/phishingCount", (req, res) => {
-  res.json({ phishingCount: phishingCount });
+  res.json({ phishingCount: getPhishingCount() });
 });
 
 app.get("/scan/legitimateCount", (req, res) => {
-  res.json({ legitimateCount: legitimateCount });
+  res.json({ legitimateCount: getLegitimateCount() });
 });
 
 app.listen(port, () => {
