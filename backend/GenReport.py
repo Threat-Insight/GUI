@@ -11,28 +11,24 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 
-# Ignore TensorFlow and gRPC warnings
 warnings.filterwarnings("ignore")
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 os.environ['GRPC_VERBOSITY'] = 'ERROR'
 
-# Load environment variables from .env file
 load_dotenv()
 
-# Configure the Google Generative AI API
+
 GENAI.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 model = GENAI.GenerativeModel("gemini-1.5-flash")
 
-# Regex to extract base domain from URL
 def extract_base_domain(url):
     pattern = r'^https?:\/\/(?:www\.)?([^\/\?\:]+)'
     match = re.match(pattern, url)
     if match:
         base_domain = match.group(1)
-        # Split on the dot and take all but the last part (TLD)
         parts = base_domain.split('.')
         if len(parts) > 1:
-            return '.'.join(parts[:-1])  # Join all parts except the last one
+            return '.'.join(parts[:-1])
         return base_domain
     return None
 
@@ -50,11 +46,11 @@ def interpret_image(image_path):
     try:
         image = Image.open(image_path)
 
-        # Convert image to RGB mode if it's not in RGB
+
         if image.mode != 'RGB':
             image = image.convert('RGB')
 
-        # Generate content using the model
+
         response = model.generate_content(image)
 
         details = []
