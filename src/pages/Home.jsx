@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import Navbar from "../components/Navbar";
 import "../css/global.css";
 import Hero from "../components/Hero";
@@ -29,6 +30,9 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Threat Insight | AI Based Phishing Detection</title>
+      </Helmet>
       <Navbar links={links} />
       <Hero />
       <CVE />

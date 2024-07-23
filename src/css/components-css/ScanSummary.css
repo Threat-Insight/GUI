@@ -1,0 +1,115 @@
+.logs-header {
+  color: #37a1f4;
+  font-size: 46px;
+  text-transform: uppercase;
+  padding: 10px 10px 10px 0;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+.logs-entry {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 300px;
+  gap: 36px;
+}
+
+.logs-information {
+  display: flex;
+  align-items: center;
+  display: flex;
+  gap: 18px;
+}
+
+.logs-entry li {
+  flex-shrink: 0;
+  width: 100%;
+  padding: 16px;
+  flex-direction: column;
+  display: flex;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  border: #bfbfbf solid 1px;
+  gap: 28px;
+}
+
+.logs-entry li a:link,
+.logs-entry li a:visited {
+  text-decoration: none;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 600;
+  position: relative;
+}
+
+.logs-entry li a::after {
+  position: absolute;
+  background-color: #bfbfbf;
+  content: "";
+  height: 2px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  border-radius: 8px;
+  transition: all 0.8s;
+}
+
+.logs-entry li a:hover::after {
+  width: 0;
+}
+
+.logs-entry li span {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.logs-legit {
+  color: #36b78e;
+}
+
+.logs-phish {
+  color: #f43755;
+}
+
+.logs-icon {
+  font-size: 24px;
+  color: #37a1f4;
+}
+
+.generate-report {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 10px;
+}
+
+.report-text {
+  color: #37a1f4;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+}
+
+.logs-btn {
+  font-size: 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 8px;
+  background: none;
+  background-color: #bfbfbf;
+  font-weight: 800;
+  border: none;
+  color: #f43755;
+  transition: all 0.4s;
+}
+
+.logs-btn:hover {
+  transform: scale(1.1);
+}
