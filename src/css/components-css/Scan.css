@@ -1,9 +1,3 @@
-.scan-dashboard {
-  min-width: 1080px;
-  margin-left: 350px;
-  padding: 30px;
-}
-
 .main-dashboard {
   display: flex;
   flex-direction: column;

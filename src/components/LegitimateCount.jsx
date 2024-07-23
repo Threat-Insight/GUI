@@ -9,7 +9,7 @@ const LegitimateCount = () => {
     const fetchUrlCount = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/scan/legitimateCount"
+          "http://localhost:8000/scan/legitimateCount"
         );
         const data = await response.json();
         setLegitCount(data.legitimateCount);

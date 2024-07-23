@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import Navbar from "../components/Navbar";
 import TeamsCard from "../components/TeamsCard";
 import Rahul from "../img/team-members/Rahul.jpg";
@@ -68,7 +69,9 @@ export default function Team() {
   ];
   return (
     <>
-      {" "}
+      <Helmet>
+        <title>Meet The Team</title>
+      </Helmet>
       <Navbar links={links} />
       <section style={{ padding: "36px 18px" }}>
         <div className="team-heading">
