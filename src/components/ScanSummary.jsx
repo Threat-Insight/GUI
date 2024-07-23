@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
-import ReactModal from "react-modal";
+import CustomModal from "./CustomModal";
 import "../css/components-css/ScanSummary.css";
 import { BsArrowRight } from "react-icons/bs";
-
-ReactModal.setAppElement("#root"); // Set this to the root element of your app
 
 const ScanSummary = () => {
   const [urls, setUrls] = useState([]);
@@ -12,7 +10,7 @@ const ScanSummary = () => {
   const [success, setSuccess] = useState(null);
   const [loading, setLoading] = useState(false);
   const [loadingIndex, setLoadingIndex] = useState(null);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(true);
   const [pdfUrl, setPdfUrl] = useState("");
 
   const extractBaseDomain = (url) => {
@@ -57,21 +55,17 @@ const ScanSummary = () => {
       const { pdfFilePath, message } = response.data;
 
       if (message === "Report generated successfully") {
-        // Update the reportStatus for the specific URL
         setUrls((prevUrls) =>
           prevUrls.map((entry, i) =>
             i === index ? { ...entry, reportStatus: "Report generated" } : entry
           )
         );
 
-        // Set the PDF URL and open the modal
-        setPdfUrl(`http://localhost:5000${pdfFilePath}`); // Ensure URL is properly formatted
+        setPdfUrl(`http://localhost:5000${pdfFilePath}`);
         setModalIsOpen(true);
       } else {
         setError("Unexpected report status: " + message);
       }
-
-      setSuccess("Report generation requested.");
       setError(null);
       setLoading(false);
       setLoadingIndex(null);
@@ -147,29 +141,21 @@ const ScanSummary = () => {
         !error && !success && <p>No URLs scanned yet.</p>
       )}
 
-      <ReactModal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        contentLabel="Download PDF"
-        style={{
-          content: {
-            top: "50%",
-            left: "50%",
-            right: "auto",
-            bottom: "auto",
-            marginRight: "-50%",
-            transform: "translate(-50%, -50%)",
-            textAlign: "center",
-          },
-        }}
-      >
-        <h2>Report Generated</h2>
-        <p>Click the button below to download the PDF report.</p>
-        <button onClick={downloadPdf}>Download PDF</button>
-        <button onClick={closeModal} style={{ marginLeft: "10px" }}>
-          Close
-        </button>
-      </ReactModal>
+      <CustomModal isOpen={modalIsOpen} onRequestClose={closeModal}>
+        <h2 className="sucess-modal">Success</h2>
+        <p className="success-para">
+          A comprehensive phishing analysis has been generated. Hit the button
+          below to download your detailed report and secure your insights!
+        </p>
+        <div className="modal-btns">
+          <button onClick={downloadPdf} className="modal-btn green">
+            Get Report
+          </button>
+          <button onClick={closeModal} className="modal-btn red">
+            Close
+          </button>
+        </div>
+      </CustomModal>
     </div>
   );
 };

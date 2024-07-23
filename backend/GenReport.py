@@ -49,10 +49,7 @@ def interpret_image(image_path):
 
         if image.mode != 'RGB':
             image = image.convert('RGB')
-
-
         response = model.generate_content(image)
-
         details = []
         if hasattr(response, '_done') and response._done:
             if hasattr(response, '_result') and response._result:

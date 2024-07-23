@@ -114,6 +114,56 @@
   transform: scale(1.1);
 }
 
+.success-para {
+  font-size: 16px;
+  color: #37a1f4;
+  margin: 16px 28px;
+  line-height: 1.4;
+  font-weight: 500;
+  text-align: justify;
+}
+
+.sucess-modal {
+  color: #36b78e;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.4px;
+}
+
+.modal-btns {
+  display: flex;
+  align-items: center;
+  gap: 96px;
+}
+
+.modal-btn {
+  padding: 12px;
+  cursor: pointer;
+  background: none;
+  background-color: #1a1a1a;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.4s;
+}
+
+.modal-btn:hover {
+  transform: scale(1.2);
+}
+
+.green {
+  color: #36b78e;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.red {
+  color: #f43755;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);

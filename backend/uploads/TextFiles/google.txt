@@ -1,43 +1,13 @@
-Content Part: This is a cookie consent popup from Google. It informs users about how Google uses cookies and data to provide its services and offers options for users to accept all cookies, decline all cookies, or choose specific options. 
+Content Part: This is a cookie consent dialog from Google.  It asks the user to allow Google to use cookies and data to:
 
-Here's a breakdown of the popup:
+* **Improve Google services:** This includes developing new features, measuring the effectiveness of advertising, and personalizing content based on user preferences.
+* **Protect Google services from spam and abuse:** This involves using data to detect and prevent malicious activities like spam, fraud, and phishing. 
+* **Show personalized advertising:** This means Google will use user data to display ads that are relevant to their interests and preferences. 
 
-**Heading:**
+The user can choose from three options:
 
--  "Bevor Sie zu Google weitergehen" - This clearly states the purpose of the popup.
-
-**Information about Cookies and Data:**
-
--  "Wir verwenden Cookies und Daten, um..." - This section explains the purpose of cookies and data collection. 
-
-**Specific Uses:**
-
--  "Google-Dienste zu erbringen und zu betreiben" - This is a general statement about using cookies to ensure basic functionality of Google services.
--  "Ausfälle zu prüfen und Maßnahmen gegen Spam, Betrug und Missbrauch zu ergreifen" - This refers to using cookies for security purposes and preventing malicious activities.
--  "Daten zu Zielgruppeninteraktionen und Website statistischen zu erheben" - This means gathering user data for website analysis and improving user experience.
--  "Mit den gewonnen Informationen möchten wir verstehen, wie unsere Dienste verwendet werden, und die Qualität dieser Dienste verbessern" -  This emphasizes that data collection aims to improve Google's services.
-
-**Options when "Alle akzeptieren" is chosen:**
-
--  "neue Dienste zu entwickeln und zu verbessern" - This implies using data to create and enhance new Google products.
--  "Werbung auszuleiern und ihre Wirkung zu messen" - This refers to personalized advertising based on user interests.
--  "je nach Ihren Einstellungen personalisierte Inhalte anzuzeigen" - This explains the use of cookies for tailoring content to user preferences.
--  "personalisierte Werbung anzuzeigen, abhängig von Ihren Einstellungen" -  This reiterates the personalized advertising aspect.
-
-**Options when "Alle ablehnen" is chosen:**
-
--  "Nicht personalisierte Inhalte werden u. a. von Inhalten, die Sie sich gerade ansehen, Aktivitäten in Ihrer aktiven Suchsitzung und Ihrem Standort beeinflusst" - This describes the type of non-personalized content users might experience.
-
-**Additional Details:**
-
--  "Wählen Sie „Weitere Optionen" aus, um zusätzliche Informationen anzusehen, einschließlich Details zum verwalten Ihrer Datenschutzeinstellungen" - This encourages users to explore more detailed settings for cookie control.
-
-**Call to Action:**
-
--  "Alle ablehnen" - This option allows users to reject all cookies.
--  "Alle akzeptieren" - This option grants consent to Google's use of all cookies and data.
--  "Weitere Optionen" - This button leads to a more detailed settings menu for cookie customization.
-
-**Overall, the popup aims to be transparent with users about Google's use of cookies and data, while providing them with options to control their privacy preferences.**
+* **"Alle ablehnen":** This means the user will not allow Google to use any cookies or data, but may limit their access to certain features. 
+* **"Alle akzeptieren":** This means the user agrees to all of Google's cookie and data usage practices.
+* **"Weitere Optionen":** This allows the user to see a more detailed breakdown of what cookies and data are being used and make more specific choices about which ones they want to allow. 
 
 No metadata available.

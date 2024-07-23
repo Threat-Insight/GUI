@@ -1,6 +1,6 @@
 {
-  "urlScanCount": 4,
-  "phishingCount": 1,
+  "urlScanCount": 5,
+  "phishingCount": 2,
   "legitimateCount": 3,
   "urls": [
     {
@@ -17,6 +17,10 @@
     },
     {
       "url": "https://netaccflix.blogspot.sn/",
+      "result": "Phishing"
+    },
+    {
+      "url": "https://nvh.yhy.mybluehost.me/Toto/",
       "result": "Phishing"
     }
   ]
