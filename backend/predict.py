@@ -9,10 +9,15 @@ from bs4 import BeautifulSoup
 import requests
 import warnings
 from urllib3.exceptions import InsecureRequestWarning
+from sklearn.exceptions import InconsistentVersionWarning
+
+warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
+
 
 
 # Suppress InsecureRequestWarning
 warnings.simplefilter('ignore', InsecureRequestWarning)
+warnings.filterwarnings("ignore")
 
 # Load the saved model
 rf_model_loaded = joblib.load('random_forest_model.pkl')
