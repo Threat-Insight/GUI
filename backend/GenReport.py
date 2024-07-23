@@ -49,6 +49,12 @@ def capture_screenshot(api_key, url, output_file):
 def interpret_image(image_path):
     try:
         image = Image.open(image_path)
+
+        # Convert image to RGB mode if it's not in RGB
+        if image.mode != 'RGB':
+            image = image.convert('RGB')
+
+        # Generate content using the model
         response = model.generate_content(image)
 
         details = []
@@ -211,9 +217,11 @@ def main(url, result):
         save_result_to_txt(result_from_image, text_file_path)
         
         prompt = (
+            f"{'Phishing Analysis Report' if result == 'Phishing' else 'Legitimate Analysis Report'}\n\n"
             f"Analyze the following content for {'phishing' if result == 'Phishing' else 'legitimate'} characteristics and provide a detailed analysis.\n\n"
+            f"{'Provide only content, Phishing Characteristics, Possible Red Flags, Recommendations, Conclusion' if result == 'Phishing' else ' content, Legitimate Characteristics, Possible Green Flags, Impacts'}.\n\n"
             f"Provide the content in a way that it can be incorporated into a PDF format easily with structure containing Analysis, Content, "
-            f"{'Phishing Characteristics, Possible Red Flags, Recommendations, Conclusion' if result == 'Phishing' else 'Legitimate Characteristics, Possible Green Flags, Impacts'}.\n\n"
+            f"Dont provide such Analysis Report: Cookie Consent Dialogue lines in the response.\n\n"
             f"Content:\n{result_from_image}"
         )
         response = generate_response(prompt)

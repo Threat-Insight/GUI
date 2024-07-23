@@ -18,12 +18,12 @@ const PieChart = () => {
   const fetchCounts = async () => {
     try {
       const responseLegit = await fetch(
-        "http://localhost:8000/scan/legitimateCount"
+        "http://localhost:5000/scan/legitimateCount"
       );
       const dataLegit = await responseLegit.json();
 
       const responsePhishing = await fetch(
-        "http://localhost:8000/scan/phishingCount"
+        "http://localhost:5000/scan/phishingCount"
       );
       const dataPhishing = await responsePhishing.json();
 

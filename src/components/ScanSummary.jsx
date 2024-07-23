@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
+import ReactModal from "react-modal";
 import "../css/components-css/ScanSummary.css";
 import { BsArrowRight } from "react-icons/bs";
-import { Spinner } from "react-bootstrap"; // Assuming you have react-bootstrap installed
+
+ReactModal.setAppElement("#root"); // Set this to the root element of your app
 
 const ScanSummary = () => {
   const [urls, setUrls] = useState([]);
@@ -10,6 +12,8 @@ const ScanSummary = () => {
   const [success, setSuccess] = useState(null);
   const [loading, setLoading] = useState(false);
   const [loadingIndex, setLoadingIndex] = useState(null);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [pdfUrl, setPdfUrl] = useState("");
 
   const extractBaseDomain = (url) => {
     const regex = /^(?:https?:\/\/)?(?:www\.)?([^/]+)/;
@@ -19,7 +23,7 @@ const ScanSummary = () => {
 
   const fetchUrls = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:8000/scan/urls");
+      const response = await axios.get("http://localhost:5000/scan/urls");
       if (Array.isArray(response.data.urls)) {
         const trimmedUrls = response.data.urls.map((entry) => ({
           ...entry,
@@ -45,32 +49,26 @@ const ScanSummary = () => {
     setLoading(true);
     setLoadingIndex(index);
     try {
-      const response = await axios.post("http://localhost:8000/report", {
+      const response = await axios.post("http://localhost:5000/report", {
         url,
         result,
       });
 
-      const { reportStatus } = response.data;
+      const { pdfFilePath, message } = response.data;
 
-      // Check the reportStatus from backend
-      if (reportStatus === "Report generated") {
+      if (message === "Report generated successfully") {
         // Update the reportStatus for the specific URL
         setUrls((prevUrls) =>
           prevUrls.map((entry, i) =>
-            i === index ? { ...entry, reportStatus } : entry
+            i === index ? { ...entry, reportStatus: "Report generated" } : entry
           )
         );
 
-        // Display success alert
-        alert("Report generated successfully!");
-
-        // Download the PDF file
-        const pdfUrl = `http://localhost:8000/uploads/pdfs/${extractBaseDomain(
-          url
-        )}.pdf`;
-        window.open(pdfUrl, "_blank");
+        // Set the PDF URL and open the modal
+        setPdfUrl(`http://localhost:5000${pdfFilePath}`); // Ensure URL is properly formatted
+        setModalIsOpen(true);
       } else {
-        setError("Unexpected report status: " + reportStatus);
+        setError("Unexpected report status: " + message);
       }
 
       setSuccess("Report generation requested.");
@@ -83,6 +81,15 @@ const ScanSummary = () => {
       setLoading(false);
       setLoadingIndex(null);
     }
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+  const downloadPdf = () => {
+    window.open(pdfUrl, "_blank");
+    setModalIsOpen(false);
   };
 
   return (
@@ -109,7 +116,17 @@ const ScanSummary = () => {
               <div className="generate-report">
                 <p className="report-text">
                   {loading && loadingIndex === index ? (
-                    <Spinner animation="border" size="sm" />
+                    <span
+                      style={{
+                        display: "inline-block",
+                        width: "16px",
+                        height: "16px",
+                        border: "2px solid rgba(0, 0, 0, 0.1)",
+                        borderRadius: "50%",
+                        borderTopColor: "#333",
+                        animation: "spin 1s linear infinite",
+                      }}
+                    ></span>
                   ) : (
                     entry.reportStatus
                   )}
@@ -129,6 +146,30 @@ const ScanSummary = () => {
       ) : (
         !error && !success && <p>No URLs scanned yet.</p>
       )}
+
+      <ReactModal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Download PDF"
+        style={{
+          content: {
+            top: "50%",
+            left: "50%",
+            right: "auto",
+            bottom: "auto",
+            marginRight: "-50%",
+            transform: "translate(-50%, -50%)",
+            textAlign: "center",
+          },
+        }}
+      >
+        <h2>Report Generated</h2>
+        <p>Click the button below to download the PDF report.</p>
+        <button onClick={downloadPdf}>Download PDF</button>
+        <button onClick={closeModal} style={{ marginLeft: "10px" }}>
+          Close
+        </button>
+      </ReactModal>
     </div>
   );
 };
