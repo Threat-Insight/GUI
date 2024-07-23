@@ -16,7 +16,7 @@ const {
 } = require("./counterStorage");
 
 const app = express();
-const port = 8000;
+const PORT = 5000;
 
 const corsOptions = {
   origin: "*",
@@ -378,6 +378,6 @@ app.get("/scan/urls", (req, res) => {
   res.json({ urls: getUrls() });
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

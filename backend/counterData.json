@@ -1,8 +1,16 @@
 {
-  "urlScanCount": 1,
+  "urlScanCount": 3,
   "phishingCount": 0,
-  "legitimateCount": 1,
+  "legitimateCount": 3,
   "urls": [
+    {
+      "url": "google.com",
+      "result": "Legitimate"
+    },
+    {
+      "url": "google.com",
+      "result": "Legitimate"
+    },
     {
       "url": "google.com",
       "result": "Legitimate"
