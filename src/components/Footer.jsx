@@ -1,9 +1,5 @@
 import React from "react";
 import "../css/components-css/Footer.css";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { FaLink } from "react-icons/fa";
 
