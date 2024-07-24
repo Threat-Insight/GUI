@@ -4,94 +4,93 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { FaLink } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        <div>
-          <a href="/" className="link-style logo">
+    <>
+      <div className="border-line"></div>
+      <footer className="footer">
+        <div className="logo-about">
+          <div className="footer-logo">
             <FaLink className="icon" />
-            <p className="logo-text">Threat Insight</p>
-          </a>
+            <p className="logo-text">Threat Insight.</p>
+          </div>
+          <p className="footer-about">
+            Threat Insight is dedicated to advancing cybersecurity through
+            cutting-edge research and innovative tools.
+          </p>
+          <p className="power">be secure.</p>
         </div>
-        <div className="footer-links">
-          <div className="footer-column">
-            <h3>Links</h3>
-            <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/Documentation">Documentation</a>
-              </li>
-              <li>
-                <a href="https://github.com/syncattacker/ProjectSafeLink">
-                  Contribute
-                </a>
-              </li>
-              <li>
-                <a href="/Dashboard">Dashboard</a>
-              </li>
-            </ul>
+        <div>
+          <p className="footer-heading">explore</p>
+          <div className="footers-links">
+            <div className="footer-link">
+              <a href="/meet-the-team">Team</a>
+              <MdOutlineKeyboardArrowRight className="footer-icon" />
+            </div>
+            <div className="footer-link">
+              <a href="https://github.com/syncattacker/ProjectSafeLink">
+                Contribute
+              </a>
+              <MdOutlineKeyboardArrowRight className="footer-icon" />
+            </div>
+            <div className="footer-link">
+              <a href="/documentation">Documentation</a>
+              <MdOutlineKeyboardArrowRight className="footer-icon" />
+            </div>
+
+            <div className="footer-link"></div>
           </div>
-          <div className="footer-column">
-            <h3>Community</h3>
-            <ul>
-              <li>
-                <a href="https://github.com/syncattacker/ProjectSafeLink">
-                  Github
-                </a>
-              </li>
-              <li>
-                <a href="/meet-the-team">Team</a>
-              </li>
-            </ul>
-          </div>
-          <div className="footer-column">
-            <h3>Get in touch</h3>
-            <ul className="footer-social">
-              <li>
-                <a href="/facebook">
-                  <i className="fab fa-facebook">
-                    <FaFacebookF />
-                  </i>
-                </a>
-              </li>
-              <li>
-                <a href="/twitter">
-                  <i className="fab fa-twitter">
-                    <FaTwitter />
-                  </i>
-                </a>
-              </li>
-              <li>
-                <a href="/linkedin">
-                  <i className="fab fa-linkedin">
-                    <FaLinkedinIn />
-                  </i>
-                </a>
-              </li>
-              <li>
-                <a href="/github">
-                  <i className="fab fa-github">
-                    <FaGithub />
-                  </i>
-                </a>
-              </li>
-            </ul>
-            <div className="footer-subscribe">
-              <input type="email" placeholder="Enter email address" />
-              <button>Subscribe</button>
+        </div>
+        <div>
+          <p className="footer-heading">community</p>
+          <div className="footers-links">
+            <div className="footer-link">
+              <a href="mailto:connect.cipherrats@gmail.com">Support</a>
+              <MdOutlineKeyboardArrowRight className="footer-icon" />
+            </div>
+            <div className="footer-link">
+              <a href="https://github.com/Threat-Insight">Organization</a>
+              <MdOutlineKeyboardArrowRight className="footer-icon" />
             </div>
           </div>
         </div>
+        <div>
+          <p className="footer-heading">other projects</p>
+          <div className="footers-links">
+            <div className="footer-link">
+              <a href="https://github.com/hackpure/DVWA-AttackTool">
+                DVWA Tool
+              </a>
+              <MdOutlineKeyboardArrowRight className="footer-icon" />
+            </div>
+            <div className="footer-link">
+              <a href="https://github.com/KushagraVarshney101/SSTI_Detector">
+                SSTI Detector
+              </a>
+              <MdOutlineKeyboardArrowRight className="footer-icon" />
+            </div>
+            <div className="footer-link">
+              <a href="https://github.com/secfreaky/CyberSecurity-Tools">
+                Network Tools
+              </a>
+              <MdOutlineKeyboardArrowRight className="footer-icon" />
+            </div>
+          </div>
+        </div>
+      </footer>
+      <div
+        className="border-line"
+        style={{ margin: "0 auto", width: "60%" }}
+      ></div>
+      <div className="copyright-info">
+        <p className="copyright">
+          Copyright © 2024 Threat Insight. All rights reserved.
+        </p>
       </div>
-      <div className="footer-bottom">
-        <p>&copy; 2024 Threat Insight. All rights reserved.</p>
-      </div>
-    </footer>
+    </>
   );
 };
 
