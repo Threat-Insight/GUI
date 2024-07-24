@@ -86,38 +86,12 @@ export default function Team() {
           >
             Meet The Team
           </p>
-          <p
-            className="special-text"
-            style={{
-              fontSize: "20px",
-              textAlign: "center",
-              marginBottom: " 42px ",
-            }}
-          >
-            The Faculty Mentors
-          </p>
-        </div>
-        <div
-          className="grid grid-two teammembers"
-          style={{ justifyItems: "center", rowGap: "50px", margin: "0 200px" }}
-        >
-          {Faculty.map((teammember) => (
-            <TeamsCard
-              key={teammember.name}
-              title={teammember.name}
-              author={teammember.description}
-              urlToImage={teammember.image}
-              icontoLnURL={teammember.LNiconlink}
-              icontoGbURL={teammember.GBiconlink}
-            />
-          ))}
-        </div>
         <p
           className="special-text"
           style={{
             fontSize: "20px",
             textAlign: "center",
-            margin: " 76px 0 ",
+            marginBottom: " 42px ",
           }}
         >
           Student Contributors
@@ -132,6 +106,32 @@ export default function Team() {
           }}
         >
           {Students.map((teammember) => (
+            <TeamsCard
+              key={teammember.name}
+              title={teammember.name}
+              author={teammember.description}
+              urlToImage={teammember.image}
+              icontoLnURL={teammember.LNiconlink}
+              icontoGbURL={teammember.GBiconlink}
+            />
+          ))}
+        </div>
+        <p
+            className="special-text"
+            style={{
+              fontSize: "20px",
+              textAlign: "center",
+              margin: " 76px 0 ",
+            }}
+          >
+            The Faculty Mentors
+          </p>
+        </div>
+        <div
+          className="grid grid-two teammembers"
+          style={{ justifyItems: "center", rowGap: "50px", margin: "0 200px" }}
+        >
+          {Faculty.map((teammember) => (
             <TeamsCard
               key={teammember.name}
               title={teammember.name}
