@@ -9,7 +9,7 @@ const URLCount = () => {
     const fetchUrlCount = async () => {
       try {
         const response = await fetch(
-          "https://threatinsight.vercel.app/scan/count"
+          "https://threatinsight.vercel.app:5000/scan/count"
         ); // Ensure this matches your server's endpoint
         const data = await response.json();
         setUrlCount(data.count);
