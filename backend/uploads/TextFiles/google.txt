@@ -1,0 +1,16 @@
+Content Part: This is a cookie consent banner from Google. It informs users that the site uses cookies and data for various purposes, including:
+
+- Running and improving Google services
+- Preventing spam and abuse
+- Personalizing content and ads
+- Measuring ad effectiveness
+
+Users are given three options:
+
+- **"Alle ablehnen"**: This option means no cookies or data will be used, which could limit functionality.
+- **"Alle akzeptieren"**: This option allows Google to use all cookies and data for the listed purposes.
+- **"Weitere Optionen"**: This option allows users to customize their cookie settings and choose which data categories they want to allow.
+
+Google also provides links to their privacy policy and cookie policy for more detailed information.
+
+No metadata available.

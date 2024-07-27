@@ -1,0 +1,2 @@
+Content Part: This image shows a pop-up message on a Microsoft Windows website.  It states that access has been blocked, and provides a link to Microsoft Windows Support.  It appears to be a security message related to a potential threat detected on the user's computer.  The message is likely an attempt to scare the user into clicking the "Continue" button, which could lead to malware or phishing attempts. It is best to not click on any buttons and instead contact Microsoft directly to verify the validity of the message.
+No metadata available.

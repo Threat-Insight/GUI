@@ -8,7 +8,9 @@ const URLCount = () => {
   useEffect(() => {
     const fetchUrlCount = async () => {
       try {
-        const response = await fetch("http://localhost:5000/scan/count"); // Ensure this matches your server's endpoint
+        const response = await fetch(
+          "https://threatinsight.vercel.app/scan/count"
+        ); // Ensure this matches your server's endpoint
         const data = await response.json();
         setUrlCount(data.count);
       } catch (error) {

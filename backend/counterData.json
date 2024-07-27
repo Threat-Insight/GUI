@@ -1,26 +1,18 @@
 {
-  "urlScanCount": 5,
+  "urlScanCount": 3,
   "phishingCount": 2,
-  "legitimateCount": 3,
+  "legitimateCount": 1,
   "urls": [
     {
       "url": "google.com",
       "result": "Legitimate"
     },
     {
-      "url": "google.com",
-      "result": "Legitimate"
-    },
-    {
-      "url": "google.com",
-      "result": "Legitimate"
-    },
-    {
-      "url": "https://netaccflix.blogspot.sn/",
+      "url": "https://dev-bp-bancaempresa.pantheonsite.io/paci/indexs.php",
       "result": "Phishing"
     },
     {
-      "url": "https://nvh.yhy.mybluehost.me/Toto/",
+      "url": "https://goldfish-app-pvwz9.ondigitalocean.app/",
       "result": "Phishing"
     }
   ]

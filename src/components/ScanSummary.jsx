@@ -10,7 +10,7 @@ const ScanSummary = () => {
   const [success, setSuccess] = useState(null);
   const [loading, setLoading] = useState(false);
   const [loadingIndex, setLoadingIndex] = useState(null);
-  const [modalIsOpen, setModalIsOpen] = useState(true);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [pdfUrl, setPdfUrl] = useState("");
 
   const extractBaseDomain = (url) => {
