@@ -1,7 +1,7 @@
 {
-  "urlScanCount": 3,
+  "urlScanCount": 4,
   "phishingCount": 2,
-  "legitimateCount": 1,
+  "legitimateCount": 2,
   "urls": [
     {
       "url": "google.com",
@@ -14,6 +14,10 @@
     {
       "url": "https://goldfish-app-pvwz9.ondigitalocean.app/",
       "result": "Phishing"
+    },
+    {
+      "url": "youtube.com",
+      "result": "Legitimate"
     }
   ]
 }

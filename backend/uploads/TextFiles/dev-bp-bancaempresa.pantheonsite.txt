@@ -1,2 +1,2 @@
-No content parts found.
+Content Part: This is a login page for a bank website. It is likely that this is a website for Banco del Pacifico, a bank in Ecuador. The page asks for a user's CLAVE, which likely translates to "key" or "password." The page also includes a notification that it is important to keep data up-to-date, so the user is likely getting access to a new feature or update.  The background image depicts a rocky ocean shore.
 No metadata available.

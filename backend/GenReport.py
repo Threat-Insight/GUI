@@ -9,14 +9,14 @@ import sys
 from dotenv import load_dotenv
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageTemplate, Frame
+from reportlab.lib.units import inch
 
 warnings.filterwarnings("ignore")
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 os.environ['GRPC_VERBOSITY'] = 'ERROR'
 
 load_dotenv()
-
 
 GENAI.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 model = GENAI.GenerativeModel("gemini-1.5-flash")
@@ -45,7 +45,6 @@ def capture_screenshot(api_key, url, output_file):
 def interpret_image(image_path):
     try:
         image = Image.open(image_path)
-
 
         if image.mode != 'RGB':
             image = image.convert('RGB')
@@ -158,6 +157,21 @@ def save_result_to_txt(result, file_path):
     except Exception as e:
         raise RuntimeError(f"Error saving text file: {e}")
 
+def add_footer(canvas, doc):
+    footer_text = "All reports are provided by Threat Insight."
+    canvas.saveState()
+    canvas.setFont('Helvetica', 10)
+    footer_y = 30
+    margin = doc.leftMargin
+    page_width = doc.width
+    canvas.setStrokeColorRGB(0.6, 0.6, 0.6)
+    canvas.setLineWidth(0.8)
+    canvas.line(margin, footer_y + 30, margin + page_width, footer_y + 30)
+    text_width = canvas.stringWidth(footer_text, 'Helvetica-Bold', 10)
+    text_x = margin + (page_width - text_width) / 2  # Center the text
+    canvas.drawString(text_x, footer_y, footer_text)
+    canvas.restoreState()
+
 def save_result_to_pdf(result, file_path):
     doc = SimpleDocTemplate(file_path, pagesize=letter)
     styles = getSampleStyleSheet()
@@ -181,6 +195,10 @@ def save_result_to_pdf(result, file_path):
             else:
                 story.append(Paragraph(line, body_style))
             story.append(Spacer(1, 6))
+
+    frame = Frame(doc.leftMargin, doc.bottomMargin + 40, doc.width, doc.height - 70, id='normal')
+    template = PageTemplate(id='FooterTemplate', frames=[frame], onPage=add_footer)
+    doc.addPageTemplates([template])
 
     try:
         doc.build(story)
@@ -212,11 +230,14 @@ def main(url, result):
         prompt = (
             f"{'Phishing Analysis Report' if result == 'Phishing' else 'Legitimate Analysis Report'}\n\n"
             f"Analyze the following content for {'phishing' if result == 'Phishing' else 'legitimate'} characteristics and provide a detailed analysis.\n\n"
-            f"{'Provide only content, Phishing Characteristics, Possible Red Flags, Recommendations, Conclusion' if result == 'Phishing' else ' content, Legitimate Characteristics, Possible Green Flags, Impacts'}.\n\n"
-            f"Provide the content in a way that it can be incorporated into a PDF format easily with structure containing Analysis, Content, "
-            f"Dont provide such Analysis Report: Cookie Consent Dialogue lines in the response.\n\n"
+            f"Provide only content, {'Phishing Characteristics, Possible Red Flags, Recommendations, Conclusion' if result == 'Phishing' else 'Legitimate Characteristics, Possible Green Flags, Impacts'}.\n\n"
+            f"{'Content should not exceed one line. Phishing Characteristics with 3 points only. Possible Red Flags with 3 points only. Recommendations with 3 points only. Conclusion' if result == 'Phishing' else 'Content should not exceed one line. Legitimate Characteristics with 3 points only. Possible Green Flags with 3 points only. Impacts with 3 points only'}.\n\n"
+            f"Provide the content in a way that it can be incorporated into a PDF format easily with structure containing Analysis, Content.\n\n"
+            f"Dont provide this heading Analysis: in response provide {'Phishing Analysis Report' if result == 'Phishing' else 'Legitimate Analysis Report'}\n\n"
             f"Content:\n{result_from_image}"
         )
+
+        
         response = generate_response(prompt)
         cleaned_response = clean_response(response)
         formatted_response = format_response(cleaned_response, result)
@@ -233,5 +254,5 @@ if __name__ == "__main__":
 
     if result_arg not in ["Phishing", "Legitimate"]:
         raise ValueError("Invalid result argument. Must be 'Phishing' or 'Legitimate'.")
-    
+
     main(url_arg, result_arg)
