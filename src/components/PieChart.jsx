@@ -79,7 +79,7 @@ const PieChart = () => {
                     fillStyle: data.datasets[0].backgroundColor[i],
                     strokeStyle: data.datasets[0].backgroundColor[i],
                     lineWidth: 0,
-                    fontColor: "#fff",
+                    fontColor: "#000",
                     font: {
                       weight: "bold",
                       size: 14,

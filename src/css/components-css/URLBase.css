@@ -1,0 +1,84 @@
+.intro-flex {
+  display: flex;
+  align-items: end;
+  gap: 4px;
+}
+
+.introduction {
+  margin-bottom: 44px;
+}
+
+.number-icon {
+  font-size: 28px;
+  color: #000;
+}
+
+.base-content {
+  max-width: 900px;
+}
+
+.intro-header {
+  font-size: 26px;
+  color: #000;
+  margin-bottom: 18px;
+}
+
+.intro-header span {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.intro-title {
+  text-align: justify;
+  color: #000;
+  line-height: 1.4;
+}
+
+.why-us {
+  margin-bottom: 44px;
+}
+
+.why-us-list {
+  list-style: none;
+}
+
+.why-us-list li {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.why-title {
+  font-size: 18px;
+}
+
+.list-icon {
+  font-size: 20px;
+}
+
+.code-snippet {
+  margin-bottom: 36px;
+}
+
+.download-urls {
+  background: linear-gradient(
+    128deg,
+    rgba(0, 255, 238, 0.616) 10%,
+    rgba(134, 184, 187, 0.696) 46%,
+    rgba(134, 184, 187, 0.585) 50%
+  );
+  cursor: pointer;
+  border: none;
+  padding: 8px 24px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  text-transform: uppercase;
+  color: #000;
+  border-radius: 8px;
+  transition: all 0.8s;
+}
+
+.download-urls:hover {
+  transform: scale(1.1);
+}

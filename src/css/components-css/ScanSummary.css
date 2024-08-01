@@ -1,10 +1,15 @@
+.scan-logs {
+  color: #1f2a51;
+}
+
 .logs-header {
-  color: #37a1f4;
+  color: #1f2a51;
   font-size: 46px;
   text-transform: uppercase;
   padding: 10px 10px 10px 0;
   display: inline-block;
   letter-spacing: 1px;
+  margin-bottom: 28px;
 }
 
 .logs-entry {
@@ -150,15 +155,17 @@
   transform: scale(1.2);
 }
 
-.green {
+.green-btn {
   color: #36b78e;
+  background-color: #000;
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
 }
 
-.red {
+.red-btn {
   color: #f43755;
+  background-color: #000;
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;

@@ -1,7 +1,7 @@
 {
-  "urlScanCount": 4,
-  "phishingCount": 2,
-  "legitimateCount": 2,
+  "urlScanCount": 6,
+  "phishingCount": 3,
+  "legitimateCount": 3,
   "urls": [
     {
       "url": "google.com",
@@ -18,6 +18,14 @@
     {
       "url": "youtube.com",
       "result": "Legitimate"
+    },
+    {
+      "url": "youtube.com",
+      "result": "Legitimate"
+    },
+    {
+      "url": "https://ixanwatterhummi-f5135f.ingress-baronn.ewp.live/wp-content/plugins/kredittikay%C4%B1l/pages/region.php",
+      "result": "Phishing"
     }
   ]
 }

@@ -87,7 +87,7 @@ const ScanSummary = () => {
   };
 
   return (
-    <div>
+    <div className="scan-logs">
       <h2 className="logs-header">Scan Logs</h2>
       {error && <p className="error-message">{error}</p>}
       {success && <p className="success-message">{success}</p>}
@@ -148,10 +148,10 @@ const ScanSummary = () => {
           below to download your detailed report and secure your insights!
         </p>
         <div className="modal-btns">
-          <button onClick={downloadPdf} className="modal-btn green">
+          <button onClick={downloadPdf} className="modal-btn green-btn">
             Get Report
           </button>
-          <button onClick={closeModal} className="modal-btn red">
+          <button onClick={closeModal} className="modal-btn red-btn">
             Close
           </button>
         </div>
