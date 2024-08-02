@@ -1,5 +1,6 @@
 import React from "react";
 import "../css/components-css/Terms.css";
+import { IoIosArrowRoundForward } from "react-icons/io";
 
 const Terms = () => {
   return (
@@ -29,16 +30,19 @@ const Terms = () => {
         <p className="term-margin">
           You may use our Service solely for lawful purposes and in accordance
           with these Terms. You agree not to:
-          <ul>
+          <ul className="use-service">
             <li>
+              <IoIosArrowRoundForward className="service-icon" />
               Use the Service in any way that violates applicable laws or
               regulations.
             </li>
             <li>
+              <IoIosArrowRoundForward className="service-icon" />
               Disrupt or interfere with the operation of the Service or its
               security features.
             </li>
             <li>
+              <IoIosArrowRoundForward className="service-icon" />
               Use the Service to engage in any fraudulent, deceptive, or
               malicious activities.
             </li>
