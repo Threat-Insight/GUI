@@ -1,14 +1,3 @@
-Content Part: The image is a screenshot of a YouTube webpage. The user is being prompted to accept or reject cookies before continuing to use the platform. The message explains the different ways YouTube uses cookies, including to:
+Content Part: This is a screenshot of the YouTube website with a pop-up window that describes the cookies and data YouTube collects and how it uses it. The user has the option to "Reject all", "More options", or "Accept all". This pop-up is a common practice on websites to inform users about data privacy and obtain consent for using their data. 
 
-* Deliver and maintain Google services
-* Track outages and protect against spam, fraud, and abuse
-* Measure audience engagement and site statistics to understand how their services are used and enhance the quality of those services
-* Develop and improve new services
-* Deliver and measure the effectiveness of ads
-* Show personalized content, depending on the user's settings
-* Show personalized ads, depending on the user's settings
-
-The user has the option to "Reject all" cookies, which would limit their usage to non-personalized content and ads. Or, they can "Accept all" cookies, which enables all the functionalities listed above. Alternatively, they can click on "More options" to adjust their cookie settings.
-
-This is a standard prompt on many websites to comply with privacy regulations and give users control over their data.
 No metadata available.
