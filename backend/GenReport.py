@@ -11,6 +11,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageTemplate, Frame
 from reportlab.lib.units import inch
+from reportlab.platypus.flowables import PageBreak
 
 warnings.filterwarnings("ignore")
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
@@ -172,6 +173,7 @@ def add_footer(canvas, doc):
     canvas.drawString(text_x, footer_y, footer_text)
     canvas.restoreState()
 
+
 def save_result_to_pdf(result, file_path):
     doc = SimpleDocTemplate(file_path, pagesize=letter)
     styles = getSampleStyleSheet()
@@ -201,11 +203,11 @@ def save_result_to_pdf(result, file_path):
     doc.addPageTemplates([template])
 
     try:
-        doc.build(story)
+        doc.build(story, onFirstPage=add_footer, onLaterPages=add_footer)
         print(file_path)
     except Exception as e:
         raise RuntimeError(f"Error saving PDF file: {e}")
-
+    
 def main(url, result):
     if not url.startswith(("http://", "https://")):
         url = "https://" + url
@@ -231,7 +233,7 @@ def main(url, result):
             f"{'Phishing Analysis Report' if result == 'Phishing' else 'Legitimate Analysis Report'}\n\n"
             f"Analyze the following content for {'phishing' if result == 'Phishing' else 'legitimate'} characteristics and provide a detailed analysis.\n\n"
             f"Provide only content, {'Phishing Characteristics, Possible Red Flags, Recommendations, Conclusion' if result == 'Phishing' else 'Legitimate Characteristics, Possible Green Flags, Impacts'}.\n\n"
-            f"{'Content should not exceed one line. Phishing Characteristics with 3 points only. Possible Red Flags with 3 points only. Recommendations with 3 points only. Conclusion' if result == 'Phishing' else 'Content should not exceed one line. Legitimate Characteristics with 3 points only. Possible Green Flags with 3 points only. Impacts with 3 points only'}.\n\n"
+            f"{'Content should not exceed one line. Phishing Characteristics with 4 points only. Possible Red Flags with 3 points only. Recommendations with 3 points only. Conclusion' if result == 'Phishing' else 'Content should not exceed one line. Legitimate Characteristics with 4 points only. Possible Green Flags with 3 points only. Impacts with 3 points only'}.\n\n"
             f"Provide the content in a way that it can be incorporated into a PDF format easily with structure containing Analysis, Content.\n\n"
             f"Dont provide this heading Analysis: in response provide {'Phishing Analysis Report' if result == 'Phishing' else 'Legitimate Analysis Report'}\n\n"
             f"Content:\n{result_from_image}"

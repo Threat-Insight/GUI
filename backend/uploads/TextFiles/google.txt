@@ -1,7 +1,26 @@
+<<<<<<< HEAD
 Content Part: This is a Google cookie consent notice. Google uses cookies and other data to improve its services and provide personalized experiences. They offer users the option to accept all cookies, decline all cookies, or manage their preferences. 
 
 It's important to understand what cookies are and how they work. Cookies are small text files that websites store on your computer to remember your preferences and track your activities. While cookies can enhance your browsing experience, they can also be used to collect data about you and target you with ads.
 
 By choosing to accept cookies, you are allowing Google to track your activity and provide a more personalized experience. However, by declining cookies, you may limit your ability to use certain features of the website. It's important to weigh the benefits and drawbacks of accepting or declining cookies before making a decision. 
+=======
+Content Part: This is a Google cookie consent banner. 
 
+It explains that Google uses cookies and data to:
+
+* Improve Google services
+* Prevent spam, fraud, and abuse
+* Personalize content
+* Measure the effectiveness of advertising
+* Develop new services
+
+The user has the following options:
+
+* **"Alle ablehnen"**: This will prevent Google from using any cookies or data for the purposes listed above.
+* **"Alle akzeptieren"**: This will allow Google to use cookies and data for all of the purposes listed above.
+* **"Weitere Optionen"**: This will allow the user to customize their cookie settings.
+>>>>>>> 4d666fd9a98042deba1be5fa46bc971ce1426305
+
+The banner also provides links to Google's privacy policy and terms of service.
 No metadata available.
