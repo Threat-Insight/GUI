@@ -1,3 +1,8 @@
-Content Part: This is a screenshot of the YouTube website with a pop-up window that describes the cookies and data YouTube collects and how it uses it. The user has the option to "Reject all", "More options", or "Accept all". This pop-up is a common practice on websites to inform users about data privacy and obtain consent for using their data. 
+Content Part: This is a screenshot of YouTube's cookie consent pop-up. It asks the user to choose between "Reject all", "More options", or "Accept all" in order to continue using the site. 
 
+- "Reject all" prevents the site from using cookies for any purposes besides those strictly necessary for the site's function. 
+- "More options" allows the user to adjust their cookie settings to specify their consent on a more granular level.
+- "Accept all" agrees to the site's use of cookies for all purposes, including targeted advertising, personalization, and data collection. 
+
+This pop-up is designed to comply with data privacy regulations like GDPR and CCPA.
 No metadata available.

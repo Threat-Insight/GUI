@@ -1,0 +1,46 @@
+.terms-content {
+  color: #1f2a51;
+  line-height: 1.4;
+  max-width: 800px;
+  text-align: justify;
+}
+
+.term-margin {
+  margin-bottom: 54px;
+}
+
+.effective-date {
+  font-size: 16px;
+}
+
+.effective-date span {
+  font-weight: 600;
+}
+
+.terms-header {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.use-service {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.use-service:first-child {
+  margin-top: 18px;
+}
+
+.use-service li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.service-icon {
+  margin-left: 16px;
+  font-size: 24px;
+}

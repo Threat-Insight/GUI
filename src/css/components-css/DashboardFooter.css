@@ -2,7 +2,9 @@
   text-align: left;
   margin-top: 20px;
   margin-left: 380px;
+  color: #000;
   padding-bottom: 20px;
+  background-color: #f1f1fb !important;
 }
 
 .dashboard-footer-text {
@@ -19,7 +21,7 @@
 
 .dashboard-footer-link:link,
 .dashboard-footer-link:visited {
-  color: #fff;
+  color: #000;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;

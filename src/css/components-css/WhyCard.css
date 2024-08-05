@@ -1,0 +1,32 @@
+.whycard {
+  width: 300px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px 28px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-content {
+  margin-bottom: 20px;
+}
+
+.card-content h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+.card-content p {
+  font-size: 14px;
+  text-align: justify;
+  color: #222;
+  line-height: 1.4;
+}
+
+.why-image {
+  width: 100%;
+}

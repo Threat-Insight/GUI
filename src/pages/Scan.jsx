@@ -1,10 +1,6 @@
 import { Helmet } from "react-helmet";
-
 import Navbar from "../components/Navbar";
-
 import "../css/components-css/Scan.css";
-
-import DashboardFooter from "../components/DashboardFooter";
 import DashboardPanel from "../components/DashboardPanel";
 
 function Scan() {
@@ -33,8 +29,9 @@ function Scan() {
         <title>Scan Dashboard</title>
       </Helmet>
       <Navbar links={links} />
-      <DashboardPanel />
-      <DashboardFooter />
+      <section style={{ backgroundColor: "#f1f1fb" }} className="scan-section">
+        <DashboardPanel />
+      </section>
     </>
   );
 }

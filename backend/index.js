@@ -29,6 +29,7 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 app.use("/uploads/pdfs", express.static(path.join(__dirname, "uploads/pdfs")));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.post("/scan", (req, res) => {
   const url = req.body.url;
@@ -155,6 +156,11 @@ app.get("/scan/legitimateCount", (req, res) => {
 
 app.get("/scan/urls", (req, res) => {
   res.json({ urls: getUrls() });
+});
+
+app.get("/feeds", (req, res) => {
+  const file = path.join(__dirname, "trained.txt");
+  res.download(file);
 });
 
 app.listen(port, () => {

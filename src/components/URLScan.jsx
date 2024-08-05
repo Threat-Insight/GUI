@@ -55,7 +55,7 @@ const URLScan = () => {
                       type="text"
                       value={url}
                       onChange={(e) => setUrl(e.target.value)}
-                      placeholder="Let us Secure You"
+                      placeholder="Let us secure you"
                     />
                     <button type="submit" className="check-btn">
                       check

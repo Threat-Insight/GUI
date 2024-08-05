@@ -8,10 +8,7 @@ export default function DashboardFooter() {
         <p className="dashboard-footer-text">
           This is the <span>beta</span> version and is under development. For
           any mistakes reach us at{" "}
-          <a
-            href="mailto:connect.cipherrats@gmail.com"
-            className="dashboard-footer-link"
-          >
+          <a href="/scan#report" className="dashboard-footer-link">
             report here.
           </a>
         </p>

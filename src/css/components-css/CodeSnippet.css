@@ -1,0 +1,68 @@
+.app {
+  width: 100%;
+  margin-bottom: 36px;
+}
+
+.code-container {
+  background-color: #282a36;
+  border-radius: 10px;
+  padding: 20px;
+  width: fit-content;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.window-controls {
+  display: flex;
+  gap: 5px;
+}
+
+.control {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.red {
+  background-color: #ff5f56;
+}
+
+.yellow {
+  background-color: #ffbd2e;
+}
+
+.green {
+  background-color: #27c93f;
+}
+
+.copy-mac {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.copy-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffbd2e;
+}
+
+.copy-code {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 16px;
+}
+
+.copied-code {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 16px;
+  color: #27c93f;
+}
+
+.copied-icon {
+  font-size: 18px;
+}
