@@ -3,11 +3,11 @@ import { Helmet } from "react-helmet";
 import Navbar from "../components/Navbar";
 import TeamsCard from "../components/TeamsCard";
 import Rahul from "../img/team-members/Rahul.jpg";
-import Kushagra from "../img/team-members/Kushagra.jpeg";
+import Kushagra from "../img/team-members/Kushagra.jpg";
 import AsheeshSir from "../img/team-members/asheeshsir.jpg";
 import ArvindSir from "../img/team-members/ArvindSir.jpeg";
 import Abhinav from "../img/team-members/Abhinav.jpg";
-
+import Krishna from "../img/team-members/krishna.jpeg"
 export default function Team() {
   const links = [
     {
@@ -56,7 +56,7 @@ export default function Team() {
         "Passionate Computer Science & Engineering Student | GLA University, Mathura 🎓 | Cybersecurity Specialist 🔐 | Top 5% on TryHackMe 🏆 | CCTv1 📜",
       image: Kushagra,
       LNiconlink: "https://www.linkedin.com/in/hacksprob/",
-      GBiconlink: "",
+      GBiconlink: "https://github.com/kushagravarshney101",
     },
     {
       name: "Abhinav Singh",
@@ -66,6 +66,14 @@ export default function Team() {
       LNiconlink: "https://www.linkedin.com/in/abhinav-singh-aba043283/",
       GBiconlink: "https://github.com/secfreaky",
     },
+    {
+      name: "Krishna Agrawal",
+      description:
+        "Cybersecurity Enthusiast 🔐 | Cyber Crime Cell Agra 🛡️ | CCNA Certified 📜 | Top 8% @TryHackMe 🏆 | Cyber Crime Investigator Intern ",
+      image: Krishna,
+      LNiconlink: "https://www.linkedin.com/in/krishna-agrawal-550a4b238/",
+      GBiconlink: "https://github.com/securesecy",
+    }
   ];
   return (
     <>
@@ -116,7 +124,7 @@ export default function Team() {
             />
           ))}
         </div>
-        <p
+        {/* <p
             className="special-text"
             style={{
               fontSize: "20px",
@@ -140,7 +148,7 @@ export default function Team() {
               icontoLnURL={teammember.LNiconlink}
               icontoGbURL={teammember.GBiconlink}
             />
-          ))}
+          ))} */}
         </div>
       </section>
     </>
