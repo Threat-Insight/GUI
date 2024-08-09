@@ -159,7 +159,7 @@ def save_result_to_txt(result, file_path):
         raise RuntimeError(f"Error saving text file: {e}")
 
 def add_footer(canvas, doc):
-    footer_text = "All reports are provided by Threat Insight."
+    footer_text = "Confidential: Authorized recipients only; unauthorized use or distribution is prohibited."
     canvas.saveState()
     canvas.setFont('Helvetica', 10)
     footer_y = 30
