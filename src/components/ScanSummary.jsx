@@ -101,7 +101,11 @@ const ScanSummary = () => {
               }
             >
               <div className="logs-information">
-                <a href={entry.url} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={`https://www.${entry.url}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {entry.domain}
                 </a>{" "}
                 <BsArrowRight className="logs-icon" />

@@ -8,13 +8,31 @@ import { FaRegPaste } from "react-icons/fa6";
 function CodeSnippet({ codeString }) {
   const [copied, setCopied] = useState(false);
   const copyToClipboard = () => {
-    navigator.clipboard
-      .writeText(codeString)
-      .then(() => {
+    if (navigator.clipboard) {
+      navigator.clipboard
+        .writeText(codeString)
+        .then(() => {
+          setCopied(true);
+          setTimeout(() => setCopied(false), 2000);
+        })
+        .catch((err) => {
+          console.error("Could not copy text: ", err);
+        });
+    } else {
+      // Fallback for unsupported environments
+      const textarea = document.createElement("textarea");
+      textarea.value = codeString;
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand("copy");
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
-      })
-      .catch((err) => {});
+      } catch (err) {
+        console.error("Fallback: Oops, unable to copy", err);
+      }
+      document.body.removeChild(textarea);
+    }
   };
 
   return (
