@@ -1,2 +1,7 @@
-No content parts found.
+Content Part: This is a Google cookie consent popup. It asks users to accept or reject cookies. 
+
+- **Accepting cookies** will allow Google to track user activity for improving services, personalizing content, and showing targeted ads.
+- **Rejecting cookies** will limit Google's data collection, but may result in a less personalized experience.
+
+The popup also provides more information about how cookies are used and offers a "More options" button for further customization.
 No metadata available.

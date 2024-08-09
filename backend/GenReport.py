@@ -2,14 +2,14 @@ import os
 import re
 import requests
 import google.generativeai as GENAI
-from PIL import Image
+from PIL import Image as PILImage  # Rename PIL Image to PILImage
 import chardet
 import warnings
 import sys
 from dotenv import load_dotenv
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageTemplate, Frame
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageTemplate, Frame
 from reportlab.lib.units import inch
 from reportlab.platypus.flowables import PageBreak
 
@@ -45,7 +45,7 @@ def capture_screenshot(api_key, url, output_file):
 
 def interpret_image(image_path):
     try:
-        image = Image.open(image_path)
+        image = PILImage.open(image_path)  # Use PILImage to avoid conflict
 
         if image.mode != 'RGB':
             image = image.convert('RGB')
@@ -161,7 +161,7 @@ def save_result_to_txt(result, file_path):
 def add_footer(canvas, doc):
     footer_text = "Confidential: Authorized recipients only; unauthorized use or distribution is prohibited."
     canvas.saveState()
-    canvas.setFont('Helvetica', 10)
+    canvas.setFont('Helvetica-Bold', 10)
     footer_y = 30
     margin = doc.leftMargin
     page_width = doc.width
@@ -173,8 +173,7 @@ def add_footer(canvas, doc):
     canvas.drawString(text_x, footer_y, footer_text)
     canvas.restoreState()
 
-
-def save_result_to_pdf(result, file_path):
+def save_result_to_pdf(result, file_path, image_path):
     doc = SimpleDocTemplate(file_path, pagesize=letter)
     styles = getSampleStyleSheet()
     story = []
@@ -184,12 +183,20 @@ def save_result_to_pdf(result, file_path):
     bold_style = ParagraphStyle(name='Bold', fontSize=12, fontName='Helvetica-Bold', spaceAfter=6)
     body_style = ParagraphStyle(name='Body', fontSize=12, spaceAfter=6, leading=14)
 
+    # Process the text to find the title
     for line in result.split('\n'):
         line = line.strip()
         if line:
             if line in ["Phishing Analysis Report", "Legitimate Analysis Report"]:
                 story.append(Paragraph(line, title_style))
-                story.append(Spacer(1, 20))
+                story.append(Spacer(1, 12))
+
+                # Add the image right after the title
+                if image_path:
+                    img = Image(image_path, width=4*inch, height=3*inch)
+                    story.append(img)
+                    story.append(Spacer(1, 12))
+
             elif line in ["Analysis:", "Content:", "Phishing Characteristics:", "Possible Red Flags:", "Recommendations:", "Conclusion:", "Legitimate Characteristics:", "Possible Green Flags:", "Impacts:"]:
                 story.append(Paragraph(line, bold_underline_style))
             elif line in ["1. Lack of Context:", "2. Suspicious Request:", "3. Lack of Security Indicators:", "Overall:", "Important Note:"]:
@@ -206,8 +213,8 @@ def save_result_to_pdf(result, file_path):
         doc.build(story, onFirstPage=add_footer, onLaterPages=add_footer)
         print(file_path)
     except Exception as e:
-        raise RuntimeError(f"Error saving PDF file: {e}")
-    
+        raise RuntimeError(f"Error saving PDF file: {e}")
+
 def main(url, result):
     if not url.startswith(("http://", "https://")):
         url = "https://" + url
@@ -219,6 +226,7 @@ def main(url, result):
     text_file_path = f"uploads/TextFiles/{base_domain}.txt"
     pdf_file_path = f"uploads/pdfs/{base_domain}.pdf"
     screenshot_file_path = f"uploads/screenshots/{base_domain}.png"
+    image_path = f"uploads/screenshots/{base_domain}.png"
 
     api_key = os.getenv("SCREENSHOT_API_KEY")
     if not api_key:
@@ -243,7 +251,7 @@ def main(url, result):
         response = generate_response(prompt)
         cleaned_response = clean_response(response)
         formatted_response = format_response(cleaned_response, result)
-        save_result_to_pdf(formatted_response, pdf_file_path)
+        save_result_to_pdf(formatted_response, pdf_file_path, image_path)
     except Exception as e:
         print(f"Error: {e}")
 
