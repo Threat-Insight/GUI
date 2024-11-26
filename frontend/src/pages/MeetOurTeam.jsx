@@ -7,7 +7,7 @@ import Kushagra from "../img/team-members/Kushagra.jpg";
 import AsheeshSir from "../img/team-members/asheeshsir.jpg";
 import ArvindSir from "../img/team-members/ArvindSir.jpeg";
 import Abhinav from "../img/team-members/Abhinav.jpg";
-import Krishna from "../img/team-members/krishna.jpeg"
+import Krishna from "../img/team-members/krishna.jpeg";
 export default function Team() {
   const links = [
     {
@@ -73,7 +73,7 @@ export default function Team() {
       image: Krishna,
       LNiconlink: "https://www.linkedin.com/in/krishna-agrawal-550a4b238/",
       GBiconlink: "https://github.com/securesecy",
-    }
+    },
   ];
   return (
     <>
@@ -94,37 +94,37 @@ export default function Team() {
           >
             Meet The Team
           </p>
-        <p
-          className="special-text"
-          style={{
-            fontSize: "20px",
-            textAlign: "center",
-            marginBottom: " 42px ",
-          }}
-        >
-          Student Contributors
-        </p>
-        <div
-          className="grid grid-two teammembers"
-          style={{
-            justifyItems: "center",
-            gridTemplateColumns: "auto auto",
-            rowGap: "50px",
-            margin: "0 200px",
-          }}
-        >
-          {Students.map((teammember) => (
-            <TeamsCard
-              key={teammember.name}
-              title={teammember.name}
-              author={teammember.description}
-              urlToImage={teammember.image}
-              icontoLnURL={teammember.LNiconlink}
-              icontoGbURL={teammember.GBiconlink}
-            />
-          ))}
-        </div>
-        {/* <p
+          <p
+            className="special-text"
+            style={{
+              fontSize: "20px",
+              textAlign: "center",
+              marginBottom: " 42px ",
+            }}
+          >
+            Student Contributors
+          </p>
+          <div
+            className="grid grid-two teammembers"
+            style={{
+              justifyItems: "center",
+              gridTemplateColumns: "auto auto",
+              rowGap: "50px",
+              margin: "0 200px",
+            }}
+          >
+            {Students.map((teammember) => (
+              <TeamsCard
+                key={teammember.name}
+                title={teammember.name}
+                author={teammember.description}
+                urlToImage={teammember.image}
+                icontoLnURL={teammember.LNiconlink}
+                icontoGbURL={teammember.GBiconlink}
+              />
+            ))}
+          </div>
+          <p
             className="special-text"
             style={{
               fontSize: "20px",
@@ -148,7 +148,7 @@ export default function Team() {
               icontoLnURL={teammember.LNiconlink}
               icontoGbURL={teammember.GBiconlink}
             />
-          ))} */}
+          ))}
         </div>
       </section>
     </>

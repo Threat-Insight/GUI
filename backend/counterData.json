@@ -1,43 +1,6 @@
 {
-  "urlScanCount": 9,
-  "phishingCount": 3,
-  "legitimateCount": 6,
-  "urls": [
-    {
-      "url": "google.com",
-      "result": "Legitimate"
-    },
-    {
-      "url": "https://dev-bp-bancaempresa.pantheonsite.io/paci/indexs.php",
-      "result": "Phishing"
-    },
-    {
-      "url": "https://goldfish-app-pvwz9.ondigitalocean.app/",
-      "result": "Phishing"
-    },
-    {
-      "url": "youtube.com",
-      "result": "Legitimate"
-    },
-    {
-      "url": "youtube.com",
-      "result": "Legitimate"
-    },
-    {
-      "url": "https://ixanwatterhummi-f5135f.ingress-baronn.ewp.live/wp-content/plugins/kredittikay%C4%B1l/pages/region.php",
-      "result": "Phishing"
-    },
-    {
-      "url": "google.com",
-      "result": "Legitimate"
-    },
-    {
-      "url": "amazon.com",
-      "result": "Legitimate"
-    },
-    {
-      "url": "https://amazon.com",
-      "result": "Legitimate"
-    }
-  ]
+  "urlScanCount": 0,
+  "phishingCount": 0,
+  "legitimateCount": 0,
+  "urls": []
 }

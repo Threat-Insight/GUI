@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import URLClassificationPieChart from "../components/PieChart";
+import URLClassificationPieChart from "./PieChart";
 import { GiFishingHook } from "react-icons/gi";
 import axios from "axios";
-import URLCount from "../components/URLCount";
-import PhishingCount from "../components/PhishingCount";
-import LegitimateCount from "../components/LegitimateCount";
+import URLCount from "./URLCount";
+import PhishingCount from "./PhishingCount";
+import LegitimateCount from "./LegitimateCount";
 
 const URLScan = () => {
   const [url, setUrl] = useState("");
