@@ -1,0 +1,12 @@
+2024-11-27 09:57:32.845 - INFO - Accessed /api/v1/scan/count - User Agent: PostmanRuntime/7.43.0, IP Address: ::1, Request Type: GET
+2024-11-27 09:58:25.068 - INFO - Accessed /api/v1/scan/phishing - User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0, IP Address: ::ffff:127.0.0.1, Request Type: GET
+2024-11-27 09:58:25.070 - INFO - Accessed /api/v1/scan/legitimate - User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0, IP Address: ::ffff:127.0.0.1, Request Type: GET
+2024-11-27 09:58:25.072 - INFO - Accessed /api/v1/scan/legitimate - User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0, IP Address: ::ffff:127.0.0.1, Request Type: GET
+2024-11-27 09:58:25.071 - INFO - Accessed /api/v1/scan/count - User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0, IP Address: ::ffff:127.0.0.1, Request Type: GET
+2024-11-27 09:58:25.129 - INFO - Accessed /api/v1/scan/phishing - User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0, IP Address: ::ffff:127.0.0.1, Request Type: GET
+2024-11-27 09:58:25.531 - INFO - Accessed /api/v1/scan/legitimate - User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0, IP Address: ::ffff:127.0.0.1, Request Type: GET
+2024-11-27 09:58:25.531 - INFO - Accessed /api/v1/scan/count - User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0, IP Address: ::ffff:127.0.0.1, Request Type: GET
+2024-11-27 09:58:25.561 - INFO - Accessed /api/v1/scan/phishing - User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0, IP Address: ::ffff:127.0.0.1, Request Type: GET
+2024-11-27 09:58:33.539 - INFO - Accessed /api/v1/scan/count - User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0, IP Address: ::ffff:127.0.0.1, Request Type: GET
+2024-11-27 09:59:24.656 - INFO - Accessed /api/v1/scan/count - User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0, IP Address: ::ffff:127.0.0.1, Request Type: GET
+2024-11-27 09:59:36.987 - INFO - Accessed /api/v1/scan/count - User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0, IP Address: ::ffff:127.0.0.1, Request Type: GET
