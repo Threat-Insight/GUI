@@ -18,17 +18,17 @@ const PieChart = () => {
   const fetchCounts = async () => {
     try {
       const responseLegit = await fetch(
-        "http://localhost:5000/scan/legitimateCount"
+        "http://localhost:5000/api/v1/scan/legitimate"
       );
       const dataLegit = await responseLegit.json();
 
       const responsePhishing = await fetch(
-        "http://localhost:5000/scan/phishingCount"
+        "http://localhost:5000/api/v1/scan/phishing"
       );
       const dataPhishing = await responsePhishing.json();
 
-      const legitCount = dataLegit.legitimateCount || 0;
-      const phishingCount = dataPhishing.phishingCount || 0;
+      const legitCount = dataLegit.legitimateURLs || 0;
+      const phishingCount = dataPhishing.phishingURLs || 0;
 
       if (legitCount === 0 && phishingCount === 0) {
         setData({

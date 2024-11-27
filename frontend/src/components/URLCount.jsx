@@ -8,9 +8,9 @@ const URLCount = () => {
   useEffect(() => {
     const fetchUrlCount = async () => {
       try {
-        const response = await fetch("http://localhost:5000/scan/count"); // Ensure this matches your server's endpoint
+        const response = await fetch("http://localhost:5000/api/v1/scan/count");
         const data = await response.json();
-        setUrlCount(data.count);
+        setUrlCount(data.scannedURLs);
       } catch (error) {
         console.error("Error fetching URL count:", error);
       }

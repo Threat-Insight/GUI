@@ -9,10 +9,10 @@ const PhishingCount = () => {
     const fetchUrlCount = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/scan/phishingCount"
+          "http://localhost:5000/api/v1/scan/phishing"
         );
         const data = await response.json();
-        setphishingCount(data.phishingCount);
+        setphishingCount(data.phishingURLs);
       } catch (error) {
         console.error("Error fetching URL count:", error);
       }

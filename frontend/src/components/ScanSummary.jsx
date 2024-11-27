@@ -21,7 +21,9 @@ const ScanSummary = () => {
 
   const fetchUrls = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:5000/scan/urls");
+      const response = await axios.get(
+        "http://localhost:5000/api/v1/scan/urls"
+      );
       if (Array.isArray(response.data.urls)) {
         const trimmedUrls = response.data.urls.map((entry) => ({
           ...entry,

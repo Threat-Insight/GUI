@@ -15,7 +15,9 @@ const URLScan = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/scan", { url });
+      const response = await axios.post("http://localhost:5000/api/v1/scan", {
+        url,
+      });
       setPrediction(response.data.prediction);
       console.log(response.data);
     } catch (error) {
